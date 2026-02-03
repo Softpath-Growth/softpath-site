@@ -1,0 +1,17 @@
+// Softpath Skin — Chicago-inspired tech feel
+
+$background-color: #ffffff !default;
+$text-color: #1a1a1a !default;
+
+$link-color: #4DB6E2 !default;        // Chicago light blue
+$primary-color: #D82C20 !default;     // Bold red for accents
+
+$border-color: #e0e0e0 !default;
+$footer-background-color: #f9f9f9 !default;
+
+$nav-background-color: #ffffff !default;
+$nav-link-color: $text-color !default;
+$nav-link-hover-color: $link-color !default;
+
+$btn-color: $link-color !default;
+$btn-hover-color: darken($link-color, 10%) !default;

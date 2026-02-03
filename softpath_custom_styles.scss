@@ -1,0 +1,544 @@
+/* ==========================================================================
+   SOFTPATH CUSTOM STYLES
+   Works with Minimal Mistakes Jekyll theme
+   Keeps existing color scheme (red accent, dark text, light background)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS VARIABLES - Using existing brand colors
+   -------------------------------------------------------------------------- */
+:root {
+  --sp-red: #c13a33;
+  --sp-red-dark: #a32f29;
+  --sp-red-light: #f5e6e5;
+  --sp-text-dark: #333333;
+  --sp-text-medium: #555555;
+  --sp-text-light: #777777;
+  --sp-bg-light: #fafafa;
+  --sp-bg-white: #ffffff;
+  --sp-border: #e5e5e5;
+  --sp-border-light: #f0f0f0;
+  --sp-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --sp-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --sp-radius: 8px;
+  --sp-radius-lg: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   TYPOGRAPHY REFINEMENTS
+   -------------------------------------------------------------------------- */
+body {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--sp-text-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--sp-text-dark);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.75rem;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid var(--sp-border-light);
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: var(--sp-text-medium);
+}
+
+p {
+  margin-bottom: 1.25em;
+}
+
+/* --------------------------------------------------------------------------
+   MASTHEAD / NAVIGATION
+   -------------------------------------------------------------------------- */
+.masthead {
+  border-bottom: 1px solid var(--sp-border);
+  background: var(--sp-bg-white);
+  padding: 0.75em 0;
+}
+
+.masthead__inner-wrap {
+  max-width: 1100px;
+}
+
+.site-title {
+  font-weight: 700 !important;
+}
+
+.greedy-nav a {
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.greedy-nav a:hover {
+  color: var(--sp-red) !important;
+}
+
+.greedy-nav .visible-links a:before {
+  background: var(--sp-red);
+}
+
+/* --------------------------------------------------------------------------
+   PAGE LAYOUT
+   -------------------------------------------------------------------------- */
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3em 1.5em 4em;
+}
+
+.page__content {
+  font-size: 1.05rem;
+}
+
+/* --------------------------------------------------------------------------
+   HERO SECTION (Homepage)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding: 3em 0 2em;
+  margin-bottom: 2em;
+}
+
+.hero-section h1 {
+  font-size: 2.25rem;
+  line-height: 1.3;
+  margin-bottom: 0.5em;
+  max-width: 700px;
+}
+
+.hero-section .lead {
+  font-size: 1.2rem;
+  color: var(--sp-text-medium);
+  max-width: 600px;
+  margin-bottom: 1.5em;
+}
+
+/* --------------------------------------------------------------------------
+   CTA BUTTONS
+   -------------------------------------------------------------------------- */
+.btn,
+.btn--primary,
+a.btn {
+  display: inline-block;
+  padding: 0.875em 1.75em;
+  background: var(--sp-red);
+  color: #fff !important;
+  border-radius: var(--sp-radius);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn--primary:hover,
+a.btn:hover {
+  background: var(--sp-red-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--sp-shadow-hover);
+}
+
+/* Inline CTA link style (for "Book a call" etc) */
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-weight: 600;
+  color: var(--sp-red);
+  text-decoration: none;
+  padding: 0.5em 0;
+  transition: all 0.2s ease;
+}
+
+.cta-link:hover {
+  color: var(--sp-red-dark);
+  gap: 0.75em;
+}
+
+.cta-link::after {
+  content: "→";
+  transition: transform 0.2s ease;
+}
+
+.cta-link:hover::after {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   SERVICE CARDS
+   -------------------------------------------------------------------------- */
+.service-card {
+  background: var(--sp-bg-white);
+  border: 1px solid var(--sp-border);
+  border-radius: var(--sp-radius-lg);
+  padding: 2em;
+  margin-bottom: 1.5em;
+  transition: all 0.2s ease;
+}
+
+.service-card:hover {
+  border-color: var(--sp-red-light);
+  box-shadow: var(--sp-shadow);
+}
+
+.service-card h3 {
+  margin-top: 0;
+  color: var(--sp-text-dark);
+  font-size: 1.25rem;
+}
+
+.service-card p {
+  color: var(--sp-text-medium);
+  margin-bottom: 0;
+}
+
+/* Service card grid for homepage */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5em;
+  margin: 2em 0;
+}
+
+/* --------------------------------------------------------------------------
+   FEATURE LIST (What's Included sections)
+   -------------------------------------------------------------------------- */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5em 0;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 1.75em;
+  margin-bottom: 0.75em;
+  color: var(--sp-text-medium);
+}
+
+.feature-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 8px;
+  height: 8px;
+  background: var(--sp-red);
+  border-radius: 50%;
+}
+
+/* Checkmark variant */
+.feature-list--check li::before {
+  content: "✓";
+  background: none;
+  color: var(--sp-red);
+  font-weight: 700;
+  font-size: 0.9em;
+  top: 0.1em;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION DIVIDERS
+   -------------------------------------------------------------------------- */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--sp-border-light);
+  margin: 3em 0;
+}
+
+.section-block {
+  padding: 2.5em 0;
+  border-bottom: 1px solid var(--sp-border-light);
+}
+
+.section-block:last-child {
+  border-bottom: none;
+}
+
+/* --------------------------------------------------------------------------
+   HIGHLIGHT BOX (for audit offering, key callouts)
+   -------------------------------------------------------------------------- */
+.highlight-box {
+  background: var(--sp-bg-light);
+  border-left: 4px solid var(--sp-red);
+  padding: 1.5em 2em;
+  margin: 2em 0;
+  border-radius: 0 var(--sp-radius) var(--sp-radius) 0;
+}
+
+.highlight-box h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.highlight-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   WORK / CASE STUDY CARDS
+   -------------------------------------------------------------------------- */
+.case-study {
+  background: var(--sp-bg-white);
+  border: 1px solid var(--sp-border);
+  border-radius: var(--sp-radius-lg);
+  padding: 1.75em 2em;
+  margin-bottom: 1.25em;
+  transition: all 0.2s ease;
+}
+
+.case-study:hover {
+  box-shadow: var(--sp-shadow);
+}
+
+.case-study__type {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--sp-red);
+  margin-bottom: 0.5em;
+}
+
+.case-study h3 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-size: 1.1rem;
+}
+
+.case-study p {
+  color: var(--sp-text-medium);
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   TOOLS / LOGO LIST
+   -------------------------------------------------------------------------- */
+.tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em;
+  margin: 1.5em 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tools-list li {
+  background: var(--sp-bg-light);
+  border: 1px solid var(--sp-border);
+  padding: 0.5em 1em;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  color: var(--sp-text-medium);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   BLOG / RECENT POSTS
+   -------------------------------------------------------------------------- */
+.archive__item {
+  background: var(--sp-bg-white);
+  border: 1px solid var(--sp-border);
+  border-radius: var(--sp-radius-lg);
+  padding: 1.5em 2em;
+  margin-bottom: 1em;
+  transition: all 0.2s ease;
+}
+
+.archive__item:hover {
+  border-color: var(--sp-red-light);
+  box-shadow: var(--sp-shadow);
+}
+
+.archive__item-title {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.archive__item-title a {
+  text-decoration: none;
+}
+
+.archive__item-excerpt {
+  color: var(--sp-text-medium);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   PROCESS / TIMELINE
+   -------------------------------------------------------------------------- */
+.process-steps {
+  margin: 2em 0;
+}
+
+.process-step {
+  display: flex;
+  gap: 1.25em;
+  margin-bottom: 1.5em;
+}
+
+.process-step__number {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: var(--sp-red);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.process-step__content h4 {
+  margin: 0 0 0.25em 0;
+  font-size: 1rem;
+}
+
+.process-step__content p {
+  margin: 0;
+  color: var(--sp-text-medium);
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   CONTACT PAGE
+   -------------------------------------------------------------------------- */
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 1.25em 1.5em;
+  background: var(--sp-bg-light);
+  border-radius: var(--sp-radius);
+  margin-bottom: 1em;
+  text-decoration: none;
+  color: var(--sp-text-dark);
+  transition: all 0.2s ease;
+}
+
+.contact-method:hover {
+  background: var(--sp-red-light);
+  color: var(--sp-text-dark);
+}
+
+.contact-method__icon {
+  font-size: 1.5rem;
+}
+
+.contact-method__label {
+  font-size: 0.85rem;
+  color: var(--sp-text-light);
+  display: block;
+}
+
+.contact-method__value {
+  font-weight: 600;
+  color: var(--sp-red);
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER
+   -------------------------------------------------------------------------- */
+.page__footer {
+  background: var(--sp-bg-light);
+  border-top: 1px solid var(--sp-border);
+  margin-top: 4em;
+  padding: 2em 0;
+}
+
+.page__footer-follow,
+.page__footer-copyright {
+  font-size: 0.875rem;
+  color: var(--sp-text-light);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE ADJUSTMENTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .page {
+    padding: 2em 1.25em 3em;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .hero-section h1 {
+    font-size: 1.75rem;
+  }
+  
+  .hero-section .lead {
+    font-size: 1.1rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-card {
+    padding: 1.5em;
+  }
+  
+  .process-step {
+    flex-direction: column;
+    gap: 0.75em;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   UTILITY CLASSES
+   -------------------------------------------------------------------------- */
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--sp-text-light);
+}
+
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mt-1 { margin-top: 0.5em; }
+.mb-1 { margin-bottom: 0.5em; }
+.mt-2 { margin-top: 1em; }
+.mb-2 { margin-bottom: 1em; }
+.mt-3 { margin-top: 2em; }
+.mb-3 { margin-bottom: 2em; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
