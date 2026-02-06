@@ -2,7 +2,7 @@
 title: DailyHabit
 type: Widget
 description: Embeddable word games designed to increase daily active usage in SaaS products. Make your product stickier without building games from scratch.
-external_url:
+external_url: https://habit-softpath.web.app
 featured: true
 ---
 

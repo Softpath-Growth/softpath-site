@@ -2,7 +2,7 @@
 title: CADENCE
 type: Platform
 description: An outcome and test velocity focused A/B testing platform. Built for teams who ship fast and want experiment infrastructure that keeps up.
-external_url: 
+external_url: https://cadence-mvp.web.app
 featured: true
 ---
 
