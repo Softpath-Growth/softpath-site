@@ -11,8 +11,6 @@ We don't publish logos or detailed case studies without permission, and most cli
 
 ---
 
-<div class="work-grid">
-
 ## DTC Subscription Brand
 ### Tracking rebuild + paid acquisition
 
@@ -65,8 +63,6 @@ We don't publish logos or detailed case studies without permission, and most cli
 **What we did:** Full mobile tracking audit covering iOS and Android. Rebuilt their MMP implementation with proper SKAdNetwork configuration. Implemented a modeled attribution approach that accounted for iOS privacy limitations. Created an executive dashboard that showed acquisition metrics people could actually trust.
 
 **The outcome:** Marketing team regained confidence in their data for the first time in over a year. Identified that one of their paid channels had negative incrementality (it was cannibalizing organic installs). Shifted budget to channels with proven incrementality, improving overall acquisition efficiency by approximately 25%.
-
-</div>
 
 ---
 

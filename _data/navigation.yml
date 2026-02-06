@@ -7,3 +7,7 @@ main:
     url: /work/
   - title: "Contact"
     url: /contact/
+  - title: "Projects"
+    url: /projects/
+  - title: "Timeblock"
+    url: https://timeblock.softpath.co

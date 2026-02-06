@@ -1,13 +1,15 @@
 ---
 title: Timeblock
 type: App
-description: A focused time-blocking tool for structured deep work sessions. Built for people who actually want to stick to their calendar.
+description: A time tracking and task management app. Built as a customizable alternative to Reclaim for people who want their scheduling tool to work exactly how they work.
 external_url: https://timeblock.softpath.co
 featured: true
 ---
 
-Timeblock is a minimalist time-blocking app designed for focused work sessions.
+Timeblock is a time tracking and task management app built as an alternative to Reclaim.
 
-Most calendar apps are built for scheduling meetings. Timeblock is built for scheduling yourself. Create time blocks for deep work, set intentions for each block, and get gentle nudges when it's time to transition.
+I liked Reclaim's core concept but wanted specific features and workflows it didn't support. So I built my own version with the flexibility to add exactly what I needed.
 
-No integrations. No AI. Just a simple tool for the simple practice of deciding what you're going to work on and then working on it.
+Track time blocks, manage tasks, and adjust your schedule as reality diverges from the plan. No rigid productivity frameworks. No features you'll never use. Just the scheduling and tracking functionality that matters, implemented the way you actually want it to work.
+
+Built for people who've tried off-the-shelf productivity tools and found themselves working around their limitations instead of with them.
