@@ -1,8 +1,15 @@
-<article class="card card--project">
-  <div class="card__content">
-    <h3 class="card__title">
+<article class="card-project">
+  {% if include.project.type %}
+    <span class="card-project__badge">{{ include.project.type }}</span>
+  {% endif %}
+  <h3 class="card-project__title">
+    {% if include.project.external_url %}
+      <a href="{{ include.project.external_url }}" target="_blank" rel="noopener noreferrer">
+        {{ include.project.title }} <i class="ph ph-arrow-square-out"></i>
+      </a>
+    {% else %}
       <a href="{{ include.project.url }}">{{ include.project.title }}</a>
-    </h3>
-    <p class="card__description">{{ include.project.excerpt }}</p>
-  </div>
+    {% endif %}
+  </h3>
+  <p class="card-project__description">{{ include.project.description }}</p>
 </article>

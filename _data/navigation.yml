@@ -5,9 +5,9 @@ main:
     url: /services/
   - title: "Work"
     url: /work/
-  - title: "Contact"
-    url: /contact/
+  - title: "Writing"
+    url: /blog/
   - title: "Projects"
     url: /projects/
-  - title: "Timeblock"
-    url: https://timeblock.softpath.co
+  - title: "Contact"
+    url: /contact/

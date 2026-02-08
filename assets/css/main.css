@@ -259,9 +259,9 @@ main { min-height: 60vh; }
 
 .hero {
   position: relative;
-  padding: var(--space-10) 0;
+  padding: var(--space-8) 0;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr;
   gap: var(--space-7);
   align-items: start;
 }
@@ -381,6 +381,7 @@ main { min-height: 60vh; }
 .page__content li { margin-bottom: var(--space-2); }
 .page__content a { color: var(--text-primary); text-decoration: underline; transition: color 0.15s ease; }
 .page__content a:hover { color: var(--red-primary); }
+.page__content hr { border: none; border-top: 1px solid var(--border-light); margin: var(--space-7) 0; }
 
 .post { max-width: var(--width-content); margin: 0 auto; padding: var(--space-9) var(--space-5); }
 .post__header { margin-bottom: var(--space-7); }
@@ -398,6 +399,7 @@ main { min-height: 60vh; }
 .post__content pre { background: #1a1a1a; color: #e5e5e5; font-family: var(--font-mono); font-size: 14px; line-height: 1.6; padding: var(--space-5); overflow-x: auto; border: 1px solid #2a2a2a; margin: var(--space-5) 0; }
 .post__content a { color: var(--text-primary); text-decoration: underline; transition: color 0.15s ease; }
 .post__content a:hover { color: var(--red-primary); }
+.post__content hr { border: none; border-top: 1px solid var(--border-light); margin: var(--space-7) 0; }
 
 /* ================================================
    FOOTER
@@ -433,6 +435,105 @@ main { min-height: 60vh; }
 
 .mb-1 { margin-bottom: var(--space-1); } .mb-2 { margin-bottom: var(--space-2); } .mb-3 { margin-bottom: var(--space-3); }
 .mb-4 { margin-bottom: var(--space-4); } .mb-5 { margin-bottom: var(--space-5); } .mb-6 { margin-bottom: var(--space-6); }
+
+/* ================================================
+   ANCHOR NAVIGATION
+   ================================================ */
+
+.anchor-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  padding: var(--space-5) 0;
+}
+
+.anchor-nav a {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-light);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.anchor-nav a:hover {
+  color: var(--red-primary);
+  border-color: var(--red-primary);
+}
+
+.anchor-nav--separated {
+  border-top: 1px solid var(--border-light);
+  padding-top: var(--space-4);
+  margin-top: 0;
+  margin-bottom: var(--space-5);
+}
+
+.anchor-nav--separated a {
+  font-style: italic;
+  border: none;
+  padding: 0;
+}
+
+/* ================================================
+   SERVICE PAGE
+   ================================================ */
+
+.service-heading-icon {
+  color: var(--red-primary);
+  margin-right: var(--space-3);
+  font-size: 28px;
+  vertical-align: middle;
+}
+
+/* ================================================
+   PROJECTS PAGE
+   ================================================ */
+
+.projects-page-grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.project-card-full {
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.project-card-full:last-child { border-bottom: none; }
+
+.project-card-full__badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--red-primary);
+  background: rgba(216, 44, 32, 0.1);
+  padding: 2px 8px;
+  display: inline-block;
+  margin-bottom: var(--space-3);
+}
+
+.project-card-full__title {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+.project-card-full__title a { color: var(--text-primary); text-decoration: none; }
+.project-card-full__title a:hover { color: var(--red-primary); }
+
+.project-card-full__description {
+  font-size: var(--text-body);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 60ch;
+}
 
 /* ================================================
    ACCESSIBILITY

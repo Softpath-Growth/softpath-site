@@ -25,20 +25,18 @@ If it's not a fit, we'll tell you. If we know someone better suited, we'll make 
 
 ---
 
-## Or just send an email
-
-If you'd rather start with an email, that works too.
+## Or send an email
 
 **Email:** [noah@softpath.co](mailto:noah@softpath.co)
 
-Include a bit about your company, what you're trying to solve, and any relevant context. We respond to everything within one business day.
+Include your company, what you're trying to solve, and relevant context. We respond within one business day.
 
 ---
 
 ## Other ways to connect
 
-<a href="https://linkedin.com/in/noahketner" class="btn btn-text" target="_blank" rel="noopener">
-  LinkedIn <span class="arrow">→</span>
+<a href="https://www.linkedin.com/in/noahmanion" class="btn btn-text" target="_blank" rel="noopener noreferrer">
+  LinkedIn
 </a>
 
 We're most active on LinkedIn. Follow along for thoughts on marketing infrastructure, paid acquisition, and the gap between growth strategy and data reality.

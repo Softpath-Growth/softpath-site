@@ -5,46 +5,16 @@ description: Softpath is a fractional growth consultancy founded by Noah Manion.
 permalink: /about/
 ---
 
-# The short version
+## Who's behind Softpath
 
-Softpath is a fractional growth and analytics consultancy. We help companies fix their marketing infrastructure, run paid acquisition that actually scales, and build measurement systems they can trust.
+Noah Manion founded Softpath after 13+ years watching the same pattern repeat: companies hire for paid acquisition or analytics, but the real problem is upstream. Tracking is broken. Tools don't talk to each other. Dashboard data doesn't match CRM data doesn't match ad platform data. Nobody trusts the numbers.
 
-We work primarily with B2C and B2B2C companies who've outgrown scrappy early-stage setups but aren't ready for (or don't want) a full in-house growth team.
+The pattern was always the same. Companies would bring Noah in to scale Meta or fix their LTV model, and within two weeks it became clear the infrastructure was the blocker. Events firing multiple times. Attribution windows misconfigured. Subscription billing platforms not integrated with analytics. Entire growth strategies built on numbers that didn't reflect reality.
 
----
+Softpath exists to fix that first. We audit the infrastructure, get the measurement right, then help you scale acquisition with confidence. No more flying blind. No more hoping your $100K monthly Meta spend is actually working.
 
-# Who's behind Softpath
+Beyond client work, Noah builds software tools that fill gaps in the growth stack. <a href="https://cadence.softpath.co" target="_blank" rel="noopener noreferrer">Cadence</a> helps teams plan and track growth experiments without drowning in spreadsheets. <a href="https://timeblock.softpath.co" target="_blank" rel="noopener noreferrer">Timeblock</a> is a custom day planner built because existing calendar tools don't understand how growth work actually happens.
 
-Noah Manion founded Softpath after 13+ years in growth, analytics, and marketing operations across startups and agencies.
-
-The pattern was always the same: companies would hire for paid acquisition or analytics, but the real problem was upstream. Tracking was broken. Tools didn't talk to each other. Dashboard data didn't match CRM data didn't match ad platform data. Everyone was making decisions based on numbers they didn't trust.
-
-Softpath exists to fix that. We start with infrastructure, get measurement right, then help you scale acquisition with confidence.
-
-**Background:**
-
-Noah has managed paid spend from $1K to $1M+ monthly across Meta, Google, and TikTok. He's rebuilt analytics implementations for companies who thought their tracking was fine (it wasn't). He's built attribution models, LTV analyses, and executive dashboards that actually get used.
-
-Before Softpath, Noah led growth and analytics at early-stage startups and worked agency-side managing multi-channel acquisition for B2C brands. He's been the person explaining to the CFO why the numbers don't add up, and the person who fixed them.
-
----
-
-# How we work
-
-Softpath operates as a fractional partner, not a vendor. We embed with your team, understand your business, and work on problems that actually matter.
-
-Most engagements start with an infrastructure audit. We look at your tracking setup, martech stack, and paid acquisition program. We identify what's broken, what's missing, and what's costing you money you don't realize you're losing.
-
-From there, we either fix it ourselves or help your team fix it. Some clients keep us on retainer for ongoing paid management and analytics support. Others bring us in for specific projects and then run independently.
-
-We price on time and materials, not deliverables. Growth work is iterative. The scope changes as you learn. Arbitrary project boundaries don't serve anyone.
-
----
-
-# Get in touch
-
-If any of this sounds like your situation, [let's talk](/contact). No pitch deck, no pressure. Just a conversation about what's broken and whether we can help.
-
-<a href="https://linkedin.com/in/noahmanion" class="btn btn-text" target="_blank" rel="noopener">
-  Connect on LinkedIn <span class="arrow">→</span>
+<a href="https://www.linkedin.com/in/noahmanion" class="btn btn-text" target="_blank" rel="noopener noreferrer">
+  Connect on LinkedIn
 </a>
