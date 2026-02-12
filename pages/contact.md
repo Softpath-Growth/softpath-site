@@ -17,11 +17,9 @@ If it's not a fit, we'll tell you. If we know someone better suited, we'll make 
 
 30 minutes is usually enough to understand your situation and determine next steps.
 
-<div class="calendly-embed">
-  <!-- Calendly inline widget -->
-  <div class="calendly-inline-widget" data-url="https://calendly.com/softpath/discovery" style="min-width:320px;height:630px;"></div>
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-</div>
+<a href="https://cal.com/noah-manion/30min" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+  Schedule a 30-minute call
+</a>
 
 ---
 
