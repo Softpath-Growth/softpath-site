@@ -25,4 +25,11 @@
   <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:site_name" content="{{ site.title }}">
+  <script src="https://cdn.softpath.co/sdk/v1/cadence.min.js"></script>
+  <script>
+    Cadence.init({
+      apiKey: '4ff8c70c676ace82d16c9c4aea518532702e18954eec758c43f0c322b64c94f8',
+      userId: '{{user.id}}' // Replace with your user ID variable
+    });
+    </script>
 </head>
