@@ -26,10 +26,23 @@
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:site_name" content="{{ site.title }}">
   <script src="https://cdn.softpath.co/sdk/v1/cadence.min.js"></script>
-  <script>
-    Cadence.init({ 
+<script>
+  Cadence.init({ 
     apiKey: '4ff8c70c676ace82d16c9c4aea518532702e18954eec758c43f0c322b64c94f8', 
     apiUrl: 'https://cdn.softpath.co'
-    });
-    </script>
+  });
+
+  Cadence.runTest({ 
+    testId: 'copy-test', 
+    urlPattern: '/', 
+    selector: 'body > main > div > section.hero > div > div > div > h1', 
+    variants: [ 
+      { name: 'control', weight: 0.50, apply: function(element) {} }, 
+      { name: 'variant-b', weight: 0.50, apply: function(element) { 
+        document.querySelector("body > main > div > section.hero > div > div > div > h1").innerHTML = "We fix your broken PPC and Analytics Setups"; 
+      }} 
+    ] 
+  });
+</script>
+
 </head>
