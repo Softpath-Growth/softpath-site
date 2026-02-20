@@ -57,3 +57,5 @@ exclude:
   - .firebaserc
   - .claude/
   - .DS_Store
+
+future: true
