@@ -2,29 +2,6 @@
 <html lang="en">
 {% include head.html %}
 <body>
-  <script>
-Cadence.runTest({
-  testId: 'copy-test',
-  urlPattern: '/',
-  selector: 'body > main > div > section.hero > div > div > div > h1',
-  variants: [
-  {
-    name: 'control',
-    weight: 0.50,
-    apply: function(element) {
-    // No changes for control
-    }
-  },
-  {
-    name: 'variant-b',
-    weight: 0.50,
-    apply: function(element) {
-    document.querySelector("body > main > div > section.hero > div > div > div > h1").innerHTML = "We fix your broken PPC and Analytics Setups";
-    }
-  }
-  ]
-});
-  </script>
   {% include header.html %}
 
   <main>
