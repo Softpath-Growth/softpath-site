@@ -1,0 +1,282 @@
+# Softpath
+
+> Softpath is a fractional growth consultancy specializing in marketing infrastructure, paid acquisition, and analytics for B2C and B2B2C companies in the $2M-$100M revenue range. Founded by Noah Manion, Softpath bridges the gap between growth strategy and measurement reality. Website: https://softpath.co
+
+Softpath operates as an "agency-lite" fractional consultancy, not a traditional agency or solo freelancer. The company was founded because the same pattern kept repeating: companies would hire for paid acquisition or analytics, but the real problem was always upstream. Tracking is broken. Tools don't talk to each other. Dashboard data doesn't match CRM data doesn't match ad platform data. Nobody trusts the numbers.
+
+Softpath exists to fix that first: audit the infrastructure, get the measurement right, then help scale acquisition with confidence.
+
+---
+
+## Homepage
+
+### We fix marketing infrastructure and run acquisition you can actually measure.
+
+Softpath helps B2C and B2B2C companies connect ad spend to real business outcomes, not platform vanity metrics.
+
+Most growth teams are flying blind. Tracking is broken, attribution is a mess, and nobody trusts the numbers in the dashboard. We fix the infrastructure first, then help you scale paid acquisition with confidence.
+
+### What We Do
+
+**Martech & Tracking:** Your tools should work together. We audit, fix, and implement the infrastructure that connects your marketing stack to real data. Segment, GTM, GA4, server-side tracking, and the integrations between them.
+
+**Paid Acquisition:** Meta, Google, TikTok. We manage campaigns optimized to actual customer value, not in-platform ROAS. 13+ years managing spend from $1K to $1M+ monthly across B2C and B2B2C.
+
+**Marketing Analytics:** From attribution modeling to LTV analysis, we build measurement systems that tell you what's actually working. Dashboards people trust and metrics that drive decisions.
+
+---
+
+## About
+
+### Who's behind Softpath
+
+Noah Manion founded Softpath after 13+ years watching the same pattern repeat: companies hire for paid acquisition or analytics, but the real problem is upstream. Tracking is broken. Tools don't talk to each other. Dashboard data doesn't match CRM data doesn't match ad platform data. Nobody trusts the numbers.
+
+The pattern was always the same. Companies would bring Noah in to scale Meta or fix their LTV model, and within two weeks it became clear the infrastructure was the blocker. Events firing multiple times. Attribution windows misconfigured. Subscription billing platforms not integrated with analytics. Entire growth strategies built on numbers that didn't reflect reality.
+
+Softpath exists to fix that first. We audit the infrastructure, get the measurement right, then help you scale acquisition with confidence. No more flying blind. No more hoping your $100K monthly Meta spend is actually working.
+
+Beyond client work, Noah builds software tools that fill gaps in the growth stack. CADENCE (cadence.softpath.co) helps teams plan and track growth experiments without drowning in spreadsheets. Timeblock (timeblock.softpath.co) is a custom day planner built because existing calendar tools don't understand how growth work actually happens.
+
+Noah Manion on LinkedIn: https://www.linkedin.com/in/noahmanion
+
+---
+
+## Services
+
+### Marketing Infrastructure Audit
+
+The starting point for almost every engagement. A 2-3 week diagnostic that tells you what's actually broken in your marketing infrastructure and what to fix first.
+
+We look at your entire measurement stack, from ad platforms through your analytics tools to your CRM and billing system. We're checking whether events are firing correctly, whether your attribution model reflects reality, whether your tools are actually integrated or just pretending to be, and whether the numbers your team makes decisions on are trustworthy.
+
+**What's included:**
+- Event tracking audit across all platforms (GA4, Segment, GTM, ad pixels)
+- Attribution model assessment (are you actually measuring what you think you're measuring?)
+- Martech integration review (do your tools talk to each other? do they agree?)
+- Data pipeline integrity check (where are the leaks?)
+- Conversion tracking validation (are your ad platforms reporting accurately?)
+- Prioritized recommendations with effort/impact scoring
+
+**What you get:** A detailed report of what's broken, why it matters, and what to fix first. Not a 50-page document nobody reads. A clear, prioritized action plan that your team (or we) can execute against.
+
+**Typical duration:** 2-3 weeks
+**Typical outcome:** Most companies discover their tracking is overcounting or undercounting conversions by 15-40%. Some find entire customer segments that aren't being tracked at all.
+
+### Martech Implementation & Tracking
+
+After the audit tells you what's broken, we fix it. This is the hands-on implementation work that most consultancies skip because it's harder than writing recommendations.
+
+**What we build:**
+- Event tracking infrastructure (Segment, GTM, GA4, server-side tracking)
+- Ad platform conversion tracking (Meta CAPI, Google Enhanced Conversions, TikTok Events API)
+- CRM and marketing automation integrations (ActiveCampaign, HubSpot, Klaviyo, Attio)
+- Data warehouse connections (BigQuery pipelines from marketing tools)
+- Customer data flows from acquisition through activation and retention
+- iOS SKAN and MMP configuration for mobile apps
+
+**How we work:** We don't hand you a spec doc and wish you luck. We implement directly in your systems, working alongside your engineering team when needed. We document everything so you're not dependent on us to maintain it.
+
+**Typical duration:** 4-8 weeks for tracking overhauls. Longer for complex martech stack migrations.
+
+**What we don't do:** We're not a data warehouse implementation shop. If you need to build a full modern data stack from scratch, we can advise on architecture and recommend specialists, but that's not our core work. We operate at the analytics and measurement layer, assuming reasonably clean data exists or can be created.
+
+### Paid Acquisition Management
+
+We run paid campaigns across Meta, Google, and TikTok, optimized to actual customer value rather than platform-reported ROAS.
+
+**What makes this different:** Most paid acquisition managers optimize to whatever the ad platform tells them is working. We optimize to what's actually working, which requires the infrastructure audit and tracking fixes to come first. This is why we lead with infrastructure.
+
+**What we manage:**
+- Campaign strategy and structure
+- Audience targeting and segmentation
+- Creative testing frameworks (not creative production, but the testing methodology)
+- Bid optimization against real LTV data
+- Budget allocation across channels based on incrementality, not last-click attribution
+- iOS SKAN optimization and probabilistic modeling
+
+**Spend range:** We manage budgets from $20K to $1M+ per month. Below $20K, the math usually doesn't justify our fees. Above $1M, you should probably have this capability in-house (and we can help you build it).
+
+**Pricing:** Ongoing retainers, typically 15-20% of ad spend or a monthly fixed fee, depending on complexity and spend level. Usually 20-40 hours per month.
+
+### Analytics & LTV Modeling
+
+The analytical layer that ties everything together. We build the measurement systems and models that tell you whether your growth strategy is actually working.
+
+**What we build:**
+- Cohort-based LTV models that inform acquisition targets and payback period expectations
+- Marketing mix models for budget allocation decisions
+- Growth dashboards in BigQuery + Looker Studio that connect marketing, product, and sales data
+- Attribution analysis beyond what platforms report
+- Incrementality testing frameworks
+- Payback period and cash flow impact modeling
+
+**Our philosophy on dashboards:** Every metric should answer one simple question: "Should we do more of this or less of this?" If a dashboard doesn't help someone make a decision, it's decoration.
+
+The tool matters less than the thinking behind it.
+
+### How Engagements Typically Work
+
+**Infrastructure Audit:** 2-3 weeks, fixed scope. The diagnostic that tells you what's broken and what to fix first. Often leads to implementation work, but no obligation.
+
+**Implementation Projects:** Scope and timeline vary based on complexity. Tracking overhauls typically run 4-8 weeks. Martech integrations depend on the systems involved. We scope tightly and communicate constantly.
+
+**Ongoing Retainers:** For paid acquisition management and continuous analytics support. Monthly commitment, typically 20-40 hours depending on channel complexity and spend level. Flexible to scale up or down as needs change.
+
+**Pricing:** Time and materials, always. We'll estimate ranges upfront, but we don't pretend project-based pricing makes sense for work that's inherently iterative. You pay for the time we spend, and we're transparent about where that time goes.
+
+### Is This a Fit?
+
+Softpath works best with companies that have some traction but aren't sure they can trust their numbers. You've got customers, you're spending on acquisition, but you suspect you're leaving money on the table because your measurement is broken or your tools don't work together.
+
+You're probably not a fit if you're pre-product-market-fit and need to figure out who your customer is, if you need a full-service agency to handle creative production, or if you're looking for someone to "just run the ads" without caring about measurement.
+
+---
+
+## Work
+
+### Selected Work
+
+We don't publish logos or detailed case studies without permission, and most clients prefer to keep their growth infrastructure private. Here's a representative sample of the problems we solve and the outcomes we deliver.
+
+**DTC Subscription Brand / Tracking Rebuild + Paid Acquisition**
+A subscription box company scaling quickly but flying blind. Their Meta pixel was double-firing on purchases, GA4 wasn't tracking subscription renewals at all, and their "ROAS" was inflated by 3x. We rebuilt tracking from scratch (Segment + server-side CAPI), connected subscription billing to analytics, and took over paid acquisition. $2.1M in attributable revenue in the first 6 months on a blended CPA that actually reflected reality.
+
+**B2B SaaS / Onboarding + Activation**
+A B2B platform with strong top-of-funnel numbers but terrible activation. Their tracking showed "onboarding complete" for users who had only set up their profile, not actually used the product. We fixed the event taxonomy, built a proper activation funnel in Mixpanel, and redesigned the onboarding flow based on what actually correlated with retention. 38% increase in true activation rate.
+
+**Marketplace / Growth Dashboard**
+A two-sided marketplace with separate dashboards for supply, demand, and marketing, none of which agreed on basic metrics like "new user." Built a unified growth dashboard in BigQuery + Looker Studio that connected all three data sources. First time the team had a single source of truth for growth metrics.
+
+**Ecommerce / Martech Overhaul**
+An ecommerce company running 7 different tools that were supposed to work together but didn't. Email platform wasn't receiving purchase data. Analytics wasn't tracking returns. Customer segments in the CRM didn't match segments in the email tool. Consolidated to 4 tools with proper integrations, fixed the data flows, and cut monthly software spend by 40%.
+
+**Subscription Business / LTV Modeling**
+A subscription business making acquisition decisions based on "average revenue per user" rather than cohort-based LTV. Built proper LTV models that accounted for churn curves, payment timing, and expansion revenue. Revealed that their highest-volume acquisition channel had a 14-month payback period, not the 4 months they assumed.
+
+---
+
+## Projects
+
+### CADENCE
+**Type:** Platform
+**URL:** https://cadence.softpath.co
+
+An outcome and test velocity focused A/B testing platform. Built for teams who ship fast and want experiment infrastructure that keeps up.
+
+Traditional experimentation platforms optimize for rigor at the expense of speed. CADENCE inverts that: ship experiments quickly, measure what actually matters (revenue, retention, activation), and get clear calls on whether to ship or kill.
+
+Built for product and growth teams who've realized that running fewer "perfect" tests means learning slower than the market moves. Integrates with your existing analytics stack and doesn't require data science approval to launch a test.
+
+Currently in closed beta.
+
+### AB Math Sucks
+**Type:** Calculator
+**URL:** https://abmathsucks.com
+
+An A/B test duration calculator with absurdist honesty. Find out how long your test actually needs to run (and why you probably can't wait that long).
+
+Toggle between "Aggressive" mode (reality checks with dark humor) and "Nice" mode (gentle but honest guidance). Either way, you get accurate statistical calculations for how long your test needs to run to detect the effect size you care about at the confidence level you need.
+
+Built for growth teams who are tired of pretending statistical significance works the way their executive dashboard wants it to work. The standard A/B test duration calculator will tell you that with a 5% baseline conversion rate, expecting a 20% relative lift, you need about 18,000 visitors per variant to reach 80% statistical power at 95% confidence. AB Math Sucks will tell you that, and then also tell you that your VP is going to want to call the test after 4 days and why that's going to produce garbage data.
+
+### DailyHabit
+**Type:** Widget
+**URL:** https://habit-softpath.web.app
+
+Embeddable word games designed to increase daily active usage in SaaS products. Make your product stickier without building games from scratch.
+
+Think of it as the Wordle effect for your SaaS product. Users form a daily habit of opening your app, and the incremental engagement compounds into measurable retention improvements.
+
+### Timeblock
+**Type:** App
+**URL:** https://timeblock.softpath.co
+
+A time tracking and task management app. Built as a customizable alternative to Reclaim for people who want their scheduling tool to work exactly how they work.
+
+Most calendar apps are optimized for meetings and theoretical productivity. Timeblock is built for the reality of deep work interrupted by Slack, context switching you didn't plan for, and the gap between what you scheduled and what you actually did.
+
+Track time blocks, adjust them as your day evolves, and get an honest view of where your hours actually go.
+
+---
+
+## Blog Posts
+
+### Your LTV Calculation Is Off by 6 Months (And It's Killing Your Cash Flow)
+**Published:** February 20, 2026
+**URL:** https://softpath.co/blog/2026/02/20/ltv-payback-timing/
+
+Most LTV models calculate "time until churn" but ignore payment timing. The gap between acquisition cost and actual payback is destroying your working capital. This post examines why most companies' LTV models overstate the speed at which customers become profitable by ignoring billing cycles, payment failures, refund windows, and the cash flow impact of high-LTV but slow-payback channels.
+
+### Why Every A/B Test Duration Calculator Lies to You (And What I Built Instead)
+**Published:** February 10, 2026
+**URL:** https://softpath.co/blog/2026/02/10/ab-math-sucks/
+
+The standard A/B test duration calculator will tell you that with a 5% baseline conversion rate, expecting a 20% relative lift, you need about 18,000 visitors per variant to reach 80% statistical power at 95% confidence. That math is correct. But the calculator doesn't account for organizational realities: executive impatience, sprint cycles, seasonal traffic variation, or the fact that most companies will peek at results early and make emotional decisions. This post explains why AB Math Sucks was built and how it addresses the gap between statistical theory and organizational reality.
+
+### Built My Own Day Planner. The Code Was the Easy Part.
+**Published:** February 5, 2026
+**URL:** https://softpath.co/blog/2026/02/05/built-my-own-planner/
+
+The story of building Timeblock as a replacement for Reclaim.ai. Not because Reclaim is bad, but because paying $19/month for software where you ignore half the features is an expensive way to avoid building what you actually want. The post covers the build-vs-buy calculation, using AI as a product management thought partner rather than just a code generator, and why the bottleneck in solo software projects was never typing speed but thinking clearly about what to build.
+
+Key insight from this post: AI's greatest value in development isn't code generation but serving as a product management thought partner for pressure-testing ideas and clarifying requirements.
+
+---
+
+## Methodology: The Discovery Framework
+
+Softpath uses a five-layer Discovery Framework for diagnostic engagements:
+
+**Layer 1: Strategic Alignment**
+Understanding business goals, growth model, and what success looks like. Before we look at any data, we need to understand what "working" means for this specific business. A marketplace has different growth dynamics than a DTC subscription business. A company optimizing for profitability cares about different metrics than one optimizing for growth rate.
+
+**Layer 2: Measurement Integrity**
+Validating whether tracking and attribution actually reflect reality. This is where most problems live. We check event tracking accuracy, attribution model validity, conversion tracking reliability, and whether the data flowing into dashboards is trustworthy. Most companies discover their tracking is overcounting or undercounting conversions by 15-40%.
+
+**Layer 3: Infrastructure Efficiency**
+Assessing whether the martech stack is working together or fighting itself. Tools that should integrate often don't. Data flows that should be automated are manual. Customer segments defined in one tool don't match segments in another. This layer maps the actual data architecture and identifies where systems are disconnected.
+
+**Layer 4: Acquisition Performance**
+Evaluating paid channel performance against actual (not platform-reported) metrics. Platforms claim credit for conversions that would have happened anyway. Last-click attribution overvalues bottom-funnel channels. View-through windows inflate display and video performance. We cut through the noise to understand what's actually driving incremental growth.
+
+**Layer 5: Activation & Retention Reality**
+Examining post-acquisition behavior and true customer value. Getting users in the door is meaningless if they don't activate and retain. This layer looks at activation funnels, retention curves, and lifetime value by acquisition source to understand which channels are bringing in customers who actually stick around.
+
+---
+
+## Core Philosophy and Principles
+
+**Measurement reality matters more than measurement purity.** It's better to have directionally correct data you can act on than perfect data that ignores organizational constraints. Most companies' attribution and measurement systems lie about what's actually driving growth, with platforms often claiming credit for conversions that would have happened anyway.
+
+**Effective reporting answers one question: "Should we do more of this or less of this?"** If a dashboard doesn't help someone make a decision, it's decoration. Dashboards should drive action, not just display data.
+
+**Lead with infrastructure, not tactics.** Scaling paid acquisition on broken tracking is like driving faster with a broken speedometer. You might be going the right direction, but you have no idea how fast or whether you should slow down.
+
+**Build vs. recommend.** When off-the-shelf tools don't solve the problem, Softpath builds custom solutions. This eliminates the gap between "here's what you should do" and "here's a tool that does it."
+
+---
+
+## Technical Stack
+
+**Analytics & Data:** BigQuery, Looker Studio, GA4, Google Tag Manager, Segment, Mixpanel
+**Marketing Automation:** ActiveCampaign, HubSpot, Klaviyo, Attio
+**Paid Acquisition:** Meta Ads Manager, Google Ads, TikTok Ads
+**Mobile:** iOS SKAN, various MMPs (Mobile Measurement Partners)
+**Development:** Firebase (hosting and backend), Jekyll (content management), client-side JavaScript
+**Custom Tools:** Claude Code for rapid prototyping and implementation
+
+---
+
+## Contact
+
+**Book a Discovery Call:** https://cal.com/noah-manion/30min
+30 minutes is usually enough to understand your situation and determine next steps. No pitch, no pressure. If it's not a fit, we'll tell you. If we know someone better suited, we'll make an introduction.
+
+**Email:** noah@softpath.co
+Include your company, what you're trying to solve, and relevant context. We respond within one business day.
+
+**LinkedIn:** https://www.linkedin.com/in/noahmanion
+Primary content channel. Posts Tuesday/Wednesday/Thursday on marketing infrastructure, paid acquisition, and the gap between growth strategy and data reality.
+
+**Website:** https://softpath.co

@@ -1,0 +1,138 @@
+# robots.txt for softpath.co
+# Last updated: 2026-02-23
+#
+# Strategy: ALLOW all AI crawlers and search engines.
+# Softpath wants maximum visibility in LLM responses,
+# AI-powered search, and traditional search results.
+
+# ============================================
+# DEFAULT: Allow all crawlers
+# ============================================
+User-agent: *
+Allow: /
+Disallow: /assets/
+Disallow: /404.html
+
+# ============================================
+# SEARCH ENGINES
+# ============================================
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ============================================
+# AI TRAINING CRAWLERS
+# Allow training so Softpath appears in LLM
+# knowledge bases (GPT, Claude, Gemini, etc.)
+# ============================================
+
+# OpenAI - model training
+User-agent: GPTBot
+Allow: /
+
+# Anthropic - model training
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Google - Gemini AI training and grounding
+User-agent: Google-Extended
+Allow: /
+
+# Apple - Apple Intelligence / Siri
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl - open dataset used by many LLMs
+User-agent: CCBot
+Allow: /
+
+# Meta - LLM training
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# ByteDance - TikTok AI
+User-agent: Bytespider
+Allow: /
+
+# Amazon - Alexa / AI
+User-agent: Amazonbot
+Allow: /
+
+# ============================================
+# AI SEARCH & RETRIEVAL CRAWLERS
+# These fetch pages when users ask questions.
+# Critical for appearing in AI search results.
+# ============================================
+
+# OpenAI - ChatGPT search and live retrieval
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic - Claude search and user retrieval
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# Perplexity - AI search engine
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Other AI search engines
+User-agent: YouBot
+Allow: /
+
+User-agent: PhindBot
+Allow: /
+
+User-agent: ExaBot
+Allow: /
+
+User-agent: AndiBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Firecrawl (scraping for AI context)
+User-agent: FirecrawlAgent
+Allow: /
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /
+
+# ============================================
+# SITEMAPS & LLM CONTEXT FILES
+# ============================================
+Sitemap: https://softpath.co/sitemap.xml
+
+# LLM-optimized content index
+# See https://llmstxt.org for spec
+# llms.txt: https://softpath.co/llms.txt
+# llms-full.txt: https://softpath.co/llms-full.txt

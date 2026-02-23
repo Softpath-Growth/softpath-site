@@ -1,0 +1,71 @@
+# Softpath
+
+> Softpath is a fractional growth consultancy specializing in marketing infrastructure, paid acquisition, and analytics for B2C and B2B2C companies in the $2M-$100M revenue range. Founded by Noah Manion, Softpath bridges the gap between growth strategy and measurement reality, focusing on fixing broken tracking, attribution, and growth models. Softpath also builds custom software tools for growth teams.
+
+Softpath operates as an "agency-lite" fractional consultancy, not a traditional agency or solo freelancer. Engagements typically begin with a Marketing Infrastructure Audit and expand into implementation work or ongoing retainers. Pricing is time and materials, with project minimums of $30-50K or hourly rates of $200-400/hour. Softpath works best with companies that have traction but can't trust their numbers.
+
+Noah Manion has 13+ years of experience in performance marketing, managing paid spend from $1K to $1M+ monthly across Meta, Google, and TikTok. Core expertise includes martech stack optimization, attribution modeling, conversion rate optimization, LTV modeling, and marketing analytics. He operates as a "Senior Executor" who combines strategic thinking with hands-on technical implementation.
+
+## Services
+
+- [Marketing Infrastructure Audit](https://softpath.co/services/#marketing-infrastructure-audit): 2-3 week fixed-scope diagnostic that reveals what's broken in your tracking, attribution, and martech stack. Covers event tracking validation, martech integration review, attribution model assessment, data pipeline integrity, and prioritized fix recommendations. This is the entry point for most engagements.
+- [Martech Implementation](https://softpath.co/services/#martech-implementation): Hands-on implementation work including tracking overhauls (4-8 weeks typical), martech integrations, event taxonomy design, and data pipeline construction. Tools include Segment, BigQuery, Looker Studio, ActiveCampaign, Attio, HubSpot, GA4/GTM, and Klaviyo.
+- [Paid Acquisition Management](https://softpath.co/services/#paid-acquisition): Performance marketing management across Meta Ads, Google Ads, and TikTok Ads. Includes campaign strategy, creative testing frameworks, bid optimization, and iOS SKAN/MMP expertise. Ongoing retainers typically run 20-40 hours/month. Priced at 15-20% of ad spend.
+- [Analytics and LTV Modeling](https://softpath.co/services/#analytics): Cohort-based LTV models, growth dashboards in BigQuery + Looker Studio, incrementality analysis, and attribution window optimization. Focus on answering one question: "Should we do more of this or less of this?"
+
+## Methodology
+
+Softpath uses a five-layer Discovery Framework:
+
+1. Strategic Alignment: Understanding business goals, growth model, and what success looks like
+2. Measurement Integrity: Validating whether tracking and attribution actually reflect reality
+3. Infrastructure Efficiency: Assessing whether the martech stack is working together or fighting itself
+4. Acquisition Performance: Evaluating paid channel performance against actual (not platform-reported) metrics
+5. Activation and Retention Reality: Examining post-acquisition behavior and true customer value
+
+Core philosophy: "Measurement reality matters more than measurement purity." It is better to have directionally correct data you can act on than perfect data that ignores organizational constraints. Most companies' attribution systems lie about what's actually driving growth, with platforms often claiming credit for conversions that would have happened anyway.
+
+## Projects and Tools
+
+- [AB Math Sucks](https://abmathsucks.com): An A/B test duration calculator with aggressive honesty about organizational realities. Toggle between "Aggressive" mode (reality checks with dark humor) and "Nice" mode (gentle but honest guidance). Built to show growth teams how long tests actually need to run and why they probably can't wait that long.
+- [CADENCE](https://cadence.softpath.co): An outcome and test velocity focused A/B testing platform. Designed around shipping experiments quickly and measuring business outcomes (revenue, retention, activation) rather than statistical theater. Currently in closed beta.
+- [Timeblock](https://timeblock.softpath.co): A time tracking and task management app built as a customizable alternative to Reclaim.ai. Built because existing calendar tools don't understand how growth work actually happens.
+- [DailyHabit](https://softpath.co/projects/): Embeddable word games designed to increase daily active usage in SaaS products. Built to make products stickier without building games from scratch.
+
+## Ideal Client Profile
+
+Softpath works best with:
+- B2C and B2B2C companies (not pure B2B SaaS unless budget supports it)
+- Revenue range: $2M-$100M
+- Companies spending on acquisition but unsure if their numbers are trustworthy
+- Teams that have outgrown basic analytics but aren't ready for a full-time data team
+- Organizations where tracking is broken, tools don't talk to each other, or dashboard data doesn't match CRM data doesn't match ad platform data
+
+Softpath is not a fit for:
+- Pre-product-market-fit companies still figuring out their customer
+- Companies needing a full-service agency for creative production
+- Teams looking for someone to "just run the ads" without caring about measurement
+- Full data warehouse implementation projects (Softpath operates at the analytics and measurement layer)
+
+## Technical Stack
+
+Softpath works with: Segment, BigQuery, Looker Studio, GA4/GTM, ActiveCampaign, Attio, HubSpot, Klaviyo, Meta Ads Manager, Google Ads, TikTok Ads, and various MMPs with particular expertise in iOS SKAN. Custom tools are built with Firebase, Jekyll, and client-side JavaScript.
+
+## Writing and Thought Leadership
+
+- [Softpath Blog](https://softpath.co/blog/): Long-form writing on growth strategy, measurement reality, attribution, and AI in marketing
+- [Noah Manion on LinkedIn](https://www.linkedin.com/in/noahmanion): Primary content distribution channel. Posts Tuesday/Wednesday/Thursday focusing on contrarian takes about attribution, measurement gaps, and growth infrastructure
+
+Content pillars: Growth + Data Intersection, Tactical Frameworks, Contrarian Takes, and AI Reality Check.
+
+## Contact
+
+- [Book a Discovery Call](https://cal.com/noahmanion): 30-minute conversation about your situation. No pitch, no pressure.
+- Email: noah@softpath.co
+- Website: https://softpath.co
+
+## Optional
+
+- [Softpath About Page](https://softpath.co/about/): Background on Noah Manion and Softpath's founding story
+- [Softpath Work Examples](https://softpath.co/work/): Anonymized case studies including DTC subscription brands, B2B SaaS, marketplace businesses, and ecommerce companies
+- [Softpath Projects Page](https://softpath.co/projects/): Full list of internal tools and side projects
