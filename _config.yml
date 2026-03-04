@@ -1,29 +1,32 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
 title: Softpath
+tagline: "Marketing Infrastructure & Paid Acquisition Consulting"
 email: noah@softpath.co
-description: >- # this means to ignore newlines until "baseurl:"
-  I help B2C and B2B2C companies fix their marketing infrastructure and run paid acquisition they can actually measure. Martech, tracking, Meta, Google, TikTok.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://softpath.co" # the base hostname & protocol for your site, e.g. http://example.com
+description: >-
+  Softpath is a fractional growth consultancy that fixes marketing infrastructure and runs paid acquisition you can actually measure. Marketing measurement audits, tracking implementation, attribution, and analytics for B2C and B2B2C companies.
+baseurl: ""
+url: "https://softpath.co"
+
+# Author (used by jekyll-seo-tag)
+author:
+  name: Noah Manion
+  email: noah@softpath.co
+  uri: "https://softpath.co/about/"
+
+# Social / jekyll-seo-tag config
+twitter:
+  username: noahmanion
+  card: summary
+
+social:
+  name: Noah Manion
+  links:
+    - https://www.linkedin.com/in/noahmanion
+    - https://github.com/noahmanion
+
+# Default OG image for jekyll-seo-tag
+logo: /assets/images/softpath-logo.png
+og_image: /assets/images/softpath-small.jpg
 
 # Collections
 collections:
@@ -31,12 +34,20 @@ collections:
     output: true
     permalink: /projects/:title/
 
+# Defaults
 defaults:
   - scope:
       path: ""
       type: "projects"
     values:
       layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Noah Manion"
+      image: /assets/images/softpath-small.jpg
 
 sass:
   sass_dir: assets/_sass
@@ -46,7 +57,8 @@ github_username: noahmanion
 # Build settings
 markdown: kramdown
 highlighter: rouge
-permalink: /blog/:year/:month/:day/:title/
+permalink: /blog/:slug/
+future: true
 
 # Plugins
 plugins:
@@ -65,3 +77,10 @@ exclude:
   - .firebaserc
   - .claude/
   - .DS_Store
+  - SEO-GEO-PROJECT.md
+  - GEO-MONITORING.md
+  - generate-llms-full.sh
+  - softpath_website_content.md
+  - softpath_website_content_styled.md
+  - claude_code_style_prompt.md
+  - assets/SoftpathStyleGuide.pdf

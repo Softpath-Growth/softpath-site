@@ -5,6 +5,34 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "redirects": [
+      { "source": "/blog/2025/06/26/web-app-builder{,/}", "destination": "/blog/web-app-builder/", "type": 301 },
+      { "source": "/blog/2025/07/01/discovery-narritive{,/}", "destination": "/blog/discovery-narritive/", "type": 301 },
+      { "source": "/blog/2025/09/16/why-analytics-are-a-mess{,/}", "destination": "/blog/why-analytics-are-a-mess/", "type": 301 },
+      { "source": "/blog/2026/02/02/discovery-process{,/}", "destination": "/blog/discovery-process/", "type": 301 },
+      { "source": "/blog/2026/02/05/built-my-own-planner{,/}", "destination": "/blog/built-my-own-planner/", "type": 301 },
+      { "source": "/blog/2026/02/10/ab-math-sucks{,/}", "destination": "/blog/ab-math-sucks/", "type": 301 },
+      { "source": "/blog/2026/02/20/ltv-payback-timing{,/}", "destination": "/blog/ltv-payback-timing/", "type": 301 },
+      { "source": "/blog/2026/02/23/incrementality-testing{,/}", "destination": "/blog/incrementality-testing/", "type": 301 },
+      { "source": "/blog/2026/02/25/introducing-cadence{,/}", "destination": "/blog/introducing-cadence/", "type": 301 },
+      { "source": "/blog/2026/02/25/practitioner-not-a-leader{,/}", "destination": "/blog/practitioner-not-a-leader/", "type": 301 },
+      { "source": "/blog/2026/03/03/43-reverse-engineered-clay{,/}", "destination": "/blog/reverse-engineered-clay/", "type": 301 },
+      { "source": "/blog/2026/03/04/firing-best-ad{,/}", "destination": "/blog/firing-best-ad/", "type": 301 },
+      { "source": "/blog/2026/03/05/creative-testing-framework{,/}", "destination": "/blog/creative-testing-framework/", "type": 301 },
+      { "source": "/blog/2026/03/07/attribution-tool-lying{,/}", "destination": "/blog/attribution-tool-lying/", "type": 301 },
+      { "source": "/blog/2026/03/11/martech-stack-audit{,/}", "destination": "/blog/martech-stack-audit/", "type": 301 },
+      { "source": "/blog/2026/03/15/mer-only-metric-that-matters{,/}", "destination": "/blog/mer-only-metric-that-matters/", "type": 301 },
+      { "source": "/blog/2026/03/19/replaced-attribution-tool-bigquery{,/}", "destination": "/blog/replaced-attribution-tool-bigquery/", "type": 301 },
+      { "source": "/blog/2026/03/23/google-ads-dont-match-ga4{,/}", "destination": "/blog/google-ads-dont-match-ga4/", "type": 301 },
+      { "source": "/blog/2026/03/27/real-cost-broken-tracking{,/}", "destination": "/blog/real-cost-broken-tracking/", "type": 301 },
+      { "source": "/blog/2026/03/31/server-side-tracking-not-optional{,/}", "destination": "/blog/server-side-tracking-not-optional/", "type": 301 },
+      { "source": "/blog/2026/04/04/incrementality-test-without-data-science{,/}", "destination": "/blog/incrementality-test-without-data-science/", "type": 301 },
+      { "source": "/blog/2026/04/08/onboarding-funnel-leaking{,/}", "destination": "/blog/onboarding-funnel-leaking/", "type": 301 },
+      { "source": "/blog/2026/04/12/stop-ab-testing-things-that-dont-matter{,/}", "destination": "/blog/stop-ab-testing-things-that-dont-matter/", "type": 301 },
+      { "source": "/blog/2026/04/16/dashboard-your-ceo-needs{,/}", "destination": "/blog/dashboard-your-ceo-needs/", "type": 301 },
+      { "source": "/blog/2026/04/20/building-vs-buying-growth-infrastructure{,/}", "destination": "/blog/building-vs-buying-growth-infrastructure/", "type": 301 },
+      { "source": "/blog/:year/:month/:day/:slug{,/}", "destination": "/blog/:slug/", "type": 301 }
     ]
   }
 }

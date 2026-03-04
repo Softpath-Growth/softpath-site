@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Your LTV Calculation Is Off by 6 Months (And It's Killing Your Cash Flow)"
+description: "Most LTV models calculate time until churn but ignore payment timing. That gap between acquisition cost and actual payback is destroying your working capital."
 date: 2026-02-20 09:00:00 -0600
 categories: analytics finance
 excerpt: "Most LTV models calculate 'time until churn' but ignore payment timing. Here's why that gap between acquisition cost and actual payback is destroying your working capital."

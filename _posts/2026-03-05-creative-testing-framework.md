@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "I Spent $40K Testing 127 Ad Variations Last Month (Here's What I Learned)"
+description: "I spent $40K testing 127 ad variations last month. 12 worked. Here's the creative testing framework for discovering why winners win, then making more things like that."
 date: 2026-03-05 09:00:00 -0600
 categories: paid-acquisition creative-testing
 excerpt: "12 of them worked. Creative testing isn't about finding THE winner. It's about discovering why winners win, then making more things like that."

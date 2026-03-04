@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Most Companies Need a Practitioner, Not a Leader"
+description: "Marketing has a missing middle between junior marketers and CMOs. Most companies need a senior practitioner who can both strategize and execute, not another leader."
 date: 2026-02-25 09:00:00 -0600
 categories: career industry
 excerpt: "Marketing has a missing middle -- a gap between junior marketers who are learning and CMOs who are leading. Here's why that gap is costing you."

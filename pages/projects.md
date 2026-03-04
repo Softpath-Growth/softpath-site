@@ -1,11 +1,10 @@
 ---
 layout: page
-title: Projects
-description: Side projects and tools from Softpath. Calculators, apps, and experiments in growth, productivity, and marketing operations.
+title: "Growth Tools and Side Projects"
+description: "Tools and experiments built by Softpath. A/B test calculators, growth experiment platforms, time tracking apps, and marketing operations utilities."
 permalink: /projects/
+last_modified_at: 2026-03-04
 ---
-
-# Projects
 
 Tools and experiments we've built. Some useful utilities, some things we wanted to exist.
 

@@ -1,0 +1,41 @@
+{% if page.services_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "provider": {
+    "@type": "Organization",
+    "name": "Softpath",
+    "url": "https://softpath.co"
+  },
+  "serviceType": "Marketing Infrastructure Consulting",
+  "areaServed": "US",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Softpath Consulting Services",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Marketing Infrastructure Audits",
+        "description": "2-3 week diagnostic covering tracking implementation, martech architecture, and paid acquisition setup. Identifies gaps in event tracking, attribution configuration, and data flow between marketing tools."
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Martech Implementation and Tracking",
+        "description": "Event tracking across web, mobile, and server-side. CDP configuration (Segment, Rudderstack). GA4 setup. Conversion APIs for Meta CAPI, Google Enhanced Conversions, and TikTok. Typical timeline: 4-8 weeks."
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Paid Acquisition Management",
+        "description": "Performance marketing across Meta Ads, Google Ads, and TikTok Ads optimized to actual customer value and contribution margin, not in-platform ROAS. Monthly spend from $1K to $1M+."
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Analytics and LTV Modeling",
+        "description": "Cohort-based LTV models, BigQuery and Looker Studio dashboards, incrementality analysis, attribution window optimization, and marketing mix modeling."
+      }
+    ]
+  }
+}
+</script>
+{% endif %}

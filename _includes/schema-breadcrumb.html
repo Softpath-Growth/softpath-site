@@ -1,0 +1,23 @@
+{% assign crumbs = page.url | split: "/" | compact %}
+{% if crumbs.size > 0 %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://softpath.co/"
+    }{% if crumbs.size > 0 %},
+    {% for crumb in crumbs %}{% if crumb != "" %}{
+      "@type": "ListItem",
+      "position": {{ forloop.index | plus: 1 }},
+      "name": {% if forloop.last %}{{ page.title | default: crumb | capitalize | jsonify }}{% else %}{{ crumb | capitalize | jsonify }}{% endif %},
+      "item": "https://softpath.co{% assign path = "" %}{% for c in crumbs limit: forloop.index %}{% assign path = path | append: "/" | append: c %}{% endfor %}{{ path }}/"
+    }{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}{% endif %}
+  ]
+}
+</script>
+{% endif %}

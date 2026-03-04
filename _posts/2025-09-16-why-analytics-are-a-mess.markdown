@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "I've Been Rebuilding Analytics Setups. Here's What I Learned."
-description: "After rebuilding analytics for three companies, I realized why style guides matter more than anyone thinks. It's not about organization—it's about building systems that compound."
+description: "After rebuilding analytics for three companies, here's what I learned about naming conventions, style guides, and building measurement systems that compound."
 date:   2025-09-16 05:01:54 -0500
 categories: cool stuff
 ---

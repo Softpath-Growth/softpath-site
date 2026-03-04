@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "The A/B Testing Market Is Solving the Wrong Problem"
+description: "Why the A/B testing market is solving the wrong problem. Testing infrastructure was never the bottleneck. Introducing Cadence, built for test velocity and business outcomes."
 date: 2026-02-25 09:00:00 -0600
 categories: career industry
 excerpt: "Why I built Cadence, and why testing infrastructure was never the bottleneck."

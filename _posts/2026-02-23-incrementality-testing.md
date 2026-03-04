@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Your Incrementality Test Just Proved Meta Doesn't Work (Here's Why You're Wrong)"
+description: "Your incrementality test showed Meta drives only 15% incremental lift instead of the 40% it claims. That doesn't mean you should turn it off. Here's how to use incrementality data correctly."
 date: 2026-02-23 06:00:00 -0600
 categories: paid-acquisition attribution
 excerpt: "You ran a geo holdout test, saw that Meta only drives 15% incremental lift instead of the 40% it claims, and turned it off. Bad move. Here's how to actually use incrementality data."

@@ -1,11 +1,12 @@
 ---
 layout: page
-title: Contact
-description: Get in touch with Softpath. Book a call or send us an email to discuss your marketing infrastructure, paid acquisition, or analytics challenges.
+title: "Contact Softpath"
+description: "Book a discovery call or email Noah Manion to discuss your marketing infrastructure, broken tracking, attribution challenges, or paid acquisition. No pitch, no pressure."
 permalink: /contact/
+last_modified_at: 2026-03-04
 ---
 
-# Let's talk
+## Let's talk
 
 The best way to figure out if we can help is a conversation. No pitch deck, no pressure. We'll talk about what's going on in your marketing stack, where the problems are, and whether Softpath is the right fit.
 

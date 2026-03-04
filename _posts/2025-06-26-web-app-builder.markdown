@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Build Chrome-Based Apps from Any Website to Stay Focused and Productive"
+description: "How to build Chrome-based apps from any website using App Mode to stay focused while working. A simple productivity trick for growth teams."
 date:   2025-06-26 05:01:54 -0500
 categories: cool stuff
 ---

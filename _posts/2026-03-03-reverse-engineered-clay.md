@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "I Reverse-Engineered the Viral 'We Replaced Clay' Post. Here's What They Actually Built."
-date: 2026-03-3 06:00:00 -0600
+description: "A lead gen agency claims they replaced Clay with Claude Code for $200/month. I reverse-engineered what they actually built. The real cost isn't $200."
+date: 2026-03-03 06:00:00 -0600
 categories: vibe-coding gtm
 excerpt: "A lead gen agency claims they replaced Clay entirely with a $200/month Claude Code subscription and now process 272,000 leads per second. The post has thousands of comments. Most of them say 'CODE.' Almost none of them are asking the right questions."
 ---

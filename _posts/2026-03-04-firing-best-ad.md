@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "We Fired Our Best Performing Ad Because It Was Attracting the Wrong Customers"
+description: "4.2x ROAS, lowest CPA in the account, scaling beautifully, and destroying the business. How to tell when your best performing ad is attracting the wrong customers."
 date: 2026-03-04 09:00:00 -0600
 categories: paid-acquisition retention
 excerpt: "4.2x ROAS. Lowest CPA in the account. Scaling beautifully. And destroying the business. Here's how to tell when your best ad is actually your worst."
