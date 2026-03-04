@@ -1,0 +1,91 @@
+---
+layout: post
+title: "I Reverse-Engineered the Viral 'We Replaced Clay' Post. Here's What They Actually Built."
+date: 2026-03-3 06:00:00 -0600
+categories: vibe-coding gtm
+excerpt: "A lead gen agency claims they replaced Clay entirely with a $200/month Claude Code subscription and now process 272,000 leads per second. The post has thousands of comments. Most of them say 'CODE.' Almost none of them are asking the right questions."
+---
+
+A lead gen agency claims they replaced Clay entirely with a $200/month Claude Code subscription and now process 272,000 leads per second. The post has thousands of comments. Most of them say "CODE." Almost none of them are asking the right questions.
+
+I'm not going to link to the post. You've seen it. If you haven't, someone in your feed will reshare it by Friday.
+
+Here's what I want to do instead: break down what they actually built, separate the real insights from the engagement bait, and explain why this matters even if you never send a cold email in your life.
+
+## What They Actually Built
+
+Strip away the LinkedIn formatting and you're looking at a set of Python scripts that do waterfall enrichment. That means: take a lead, hit API number one for an email address. No match? Hit API number two. Still nothing? API number three. Repeat until you get a result or run out of providers.
+
+This is exactly what Clay does. Clay's entire value proposition is giving you access to 100+ data providers through a visual interface, running them in sequence, and deduplicating the results. It's a spreadsheet that calls APIs for you.
+
+What this team did was remove the spreadsheet and write the API calls directly. That's it. That's the replacement.
+
+It's not nothing. For their specific use case, processing millions of leads per week at a scale that hit Clay's row limits and credit costs, this makes total sense. Clay's Pro plan runs $720/month and caps at 50,000 credits. Enterprise contracts average $30K/year and can reach $154K. If you're burning through millions of rows, the math on building your own system gets very favorable very fast.
+
+But let's talk about the numbers.
+
+## 272,000 Leads Per Second Is Not What You Think
+
+The claim is that their new system processes 272,000 leads per second, compared to 27 hours for a million leads in Clay. That's the headline that makes the post go viral.
+
+Here's the thing: no enrichment API on earth returns data that fast at scale. Apollo's API has rate limits. Prospeo has rate limits. Every data provider has rate limits because they're querying databases and running their own lookups behind the scenes.
+
+What's almost certainly happening is one of two things. Either they pre-downloaded bulk datasets and are doing local lookups against cached data, which is fast but isn't live enrichment. Or they're counting the speed of matching records against a local database and calling that "processing," which is technically true but misleading if you're comparing it to Clay's live waterfall enrichment.
+
+This isn't a knock on their system. If you have a million leads and 800,000 of them can be matched against a local database in seconds, that's genuinely valuable. You only need to hit live APIs for the remaining 200,000. Smart architecture. But the framing suggests they built something that does what Clay does, only 19,000 times faster. That's not what's happening.
+
+## The Real Cost Isn't $200/Month
+
+The post frames this as a $200/month Claude Code subscription replacing tens of thousands in Clay spend. Here's what's missing from that equation.
+
+The data providers aren't free. Apollo, Prospeo, Hunter, BuiltWith, whatever they're using for enrichment, those all have their own pricing. Apollo's free tier gives you limited credits. Paid plans start at $49/month and go up fast at volume. If you're enriching millions of leads, you're spending hundreds or thousands per month on API access alone.
+
+Then there's infrastructure. Millions of records need a database. Postgres, BigQuery, whatever. That's hosting costs. The Google Maps scraper they mention requires Google Maps API credits, which are $5 per 1,000 requests for the Places API. Scraping 32,000 zip codes with multiple queries per zip means real money.
+
+The LinkedIn and Google ad library scrapers carry legal risk that Clay absorbs for you on their platform. When you build your own, you own that risk.
+
+And the biggest hidden cost: maintenance. Clay handles API changes, rate limit updates, provider outages, and data format shifts. When you build your own system, that's your problem now. Every time Apollo changes their API schema or a provider goes down, someone on your team is debugging Python scripts instead of running campaigns.
+
+For a team processing 17 million records per week, all of these costs are still cheaper than a six-figure Clay Enterprise contract. The math works at their scale. At most scales, it doesn't.
+
+## What Clay Actually Does Well
+
+I want to be fair here because the original post was, too. They explicitly say Clay is great for most people.
+
+Clay's real value isn't the data. It's the orchestration layer. You can build a complex enrichment workflow visually, test it on a handful of records, iterate on the logic, and then run it at scale. If step three fails, Clay shows you exactly where and why. You can add conditional branching: if the company has more than 50 employees, use this provider; if they're in healthcare, use that one.
+
+Replicating this in code is straightforward if you know what you're building. But most teams don't. They're figuring out their enrichment logic as they go, testing different providers, learning which data sources work for their ICP. Clay's interface makes that experimentation cheap and fast. Python scripts make it slow and expensive until you've locked in exactly what you need.
+
+The other thing Clay handles that gets zero credit: compliance. Data privacy, opt-out management, DNC lists, GDPR. When you're operating at scale, these aren't optional. Clay bakes them in. Your custom scripts don't.
+
+## Why This Matters If You're Not a Lead Gen Agency
+
+Here's where this gets interesting for everyone else.
+
+The viral post is about lead enrichment, but the underlying pattern applies to every SaaS tool in your stack. The question it's really asking is: at what point does the cost of a platform exceed the cost of building the specific functionality you actually use?
+
+This is a question I deal with constantly in marketing infrastructure audits. Companies are paying for Segment when they use three of its features. They're on HubSpot Enterprise when Professional would cover their needs. They have a $40K/year attribution tool that their team doesn't trust and doesn't use correctly.
+
+The pattern is always the same. A team buys a platform because it covers 80% of their needs. They grow. Their needs get more specific. The platform covers 60% of what they need. Then 40%. But they keep paying full price because switching costs are high and the status quo is comfortable.
+
+The "replace it with code" option is increasingly viable for specific, well-understood workflows. But it's a terrible option for workflows you're still figuring out.
+
+## The Decision Framework
+
+If you're reading this and wondering whether to replace a SaaS tool with custom code, here's how I think about it:
+
+Build custom when you have a stable, well-understood workflow that hasn't changed in months. When the platform's per-unit economics don't scale with your volume. When you have someone who can maintain the code. And when the platform's complexity is a cost, not a benefit, meaning you're paying for 100 features and using 5.
+
+Stay on the platform when your workflow is still evolving. When compliance and data governance matter (and they do). When the platform's integrations save you more time than the subscription costs. And when nobody on your team wants to be on call for a Python script at 2 AM.
+
+The worst version of this decision is building something because a LinkedIn post made it sound easy, then spending six months maintaining fragile scripts while your actual business stalls.
+
+## The Meta-Lesson
+
+The most useful takeaway from this viral post isn't about Clay or Claude Code. It's about the growing gap between what platforms charge and what the underlying APIs cost.
+
+Every SaaS tool in the growth and data stack is, at its core, a workflow layer on top of APIs. Clay is a workflow layer on top of enrichment APIs. Your attribution tool is a workflow layer on top of tracking APIs. Your CDP is a workflow layer on top of data storage APIs.
+
+The workflow layer is valuable. Until it isn't. The skill of knowing where that line is, for your specific business, at your specific scale, is worth more than any individual tool decision.
+
+That's the conversation worth having. Not "comment CODE below."
