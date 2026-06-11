@@ -266,7 +266,14 @@ main { min-height: 60vh; }
   align-items: start;
 }
 
+.hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-7);
+  align-items: center;
+}
 .hero__content { max-width: 720px; }
+.hero__badge { justify-self: center; }
 .hero__headline { margin-bottom: var(--space-5); }
 .hero__subhead { font-size: 24px; font-weight: 500; color: var(--text-secondary); margin-bottom: var(--space-3); line-height: 1.5; }
 .hero__body { color: var(--text-secondary); margin-bottom: var(--space-7); max-width: 560px; }
@@ -281,6 +288,8 @@ main { min-height: 60vh; }
   .header__nav { display: none; }
   .header__menu-toggle { display: block; }
   .hero { grid-template-columns: 1fr; padding: var(--space-7) 0; }
+  .hero__inner { grid-template-columns: 1fr; }
+  .hero__badge { margin-top: var(--space-5); }
   .display { font-size: 40px; }
   .hero__subhead { font-size: 20px; }
   .hero__accent { height: 96px; }
