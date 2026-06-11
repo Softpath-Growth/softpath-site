@@ -11,8 +11,13 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      # action-hosting-deploy has no Node 24 release yet (latest v0.10.0 still
+      # targets node20). Force its JS runtime to Node 24 ahead of GitHub's
+      # 2026-06-16 forced cutover. Remove once the action ships a node24 release.
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: ruby/setup-ruby@v1
         with:
