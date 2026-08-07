@@ -1,0 +1,440 @@
+---
+layout: null
+permalink: /webflow-aeo/
+title: "Webflow.com answer-engine visibility teardown"
+description: "660 LLM responses across 4 engines. Webflow wins the prompts where the buyer already knows the name, and loses the ones where they describe the problem."
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webflow.com answer-engine visibility teardown &middot; Softpath</title>
+<meta name="description" content="660 LLM responses across 4 engines. Webflow wins the prompts where the buyer already knows the name, and loses the ones where they describe the problem.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10161f;
+    --ink-soft:#4a5566;
+    --navy:#1f4e8e;
+    --navy-tint:#e8eef7;
+    --ochre:#a8741a;
+    --ochre-tint:#f4ecdc;
+    --slate:#9aa3ae;
+    --slate-tint:#edeff2;
+    --rule:#d9dee6;
+    --paper:#ffffff;
+    --panel:#f6f8fa;
+    --measure:41rem;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"IBM Plex Serif",Georgia,serif;
+    font-size:1.0625rem;line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:64rem;margin:0 auto;padding:0 1.5rem}
+  .measure{max-width:var(--measure)}
+
+  /* ---- masthead ---- */
+  header.top{border-bottom:1px solid var(--rule);padding:2.75rem 0 2rem}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+    margin:0 0 1.25rem;
+  }
+  h1{
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    font-weight:600;letter-spacing:-.028em;line-height:1.06;
+    font-size:clamp(2.1rem,5.4vw,3.4rem);
+    margin:0 0 1rem;max-width:46rem;
+  }
+  .dek{
+    font-size:clamp(1.06rem,2vw,1.3rem);line-height:1.5;color:var(--ink-soft);
+    margin:0 0 1.75rem;max-width:44rem;
+  }
+  .meta{
+    font-family:"IBM Plex Mono",monospace;font-size:.76rem;line-height:1.8;
+    color:var(--ink-soft);letter-spacing:.01em;margin:0;
+  }
+  .meta b{color:var(--ink);font-weight:600}
+
+  /* ---- sections ---- */
+  section{padding:2.75rem 0;border-bottom:1px solid var(--rule)}
+  section:last-of-type{border-bottom:0}
+  h2{
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    font-weight:600;font-size:1.32rem;letter-spacing:-.014em;line-height:1.25;
+    margin:0 0 1.1rem;
+  }
+  h2 .num{
+    font-family:"IBM Plex Mono",monospace;font-size:.78rem;font-weight:500;
+    color:var(--navy);letter-spacing:.1em;display:block;margin-bottom:.5rem;
+  }
+  h3{
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    font-size:1rem;font-weight:600;margin:1.9rem 0 .45rem;letter-spacing:-.008em;
+  }
+  p{margin:0 0 1.05rem}
+  p:last-child{margin-bottom:0}
+  strong{font-weight:600}
+  .lead{font-size:1.14rem;line-height:1.55}
+  .mono{font-family:"IBM Plex Mono",monospace;font-size:.94em;font-variant-numeric:tabular-nums}
+  .quiet{color:var(--ink-soft)}
+  .small{font-size:.92rem;line-height:1.6}
+
+  /* ---- the cliff (signature) ---- */
+  .cliff{margin:1.75rem 0 1.25rem;max-width:48rem}
+  .cliff-legend{
+    display:flex;gap:1.4rem;flex-wrap:wrap;
+    font-family:"IBM Plex Mono",monospace;font-size:.72rem;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);
+    margin-bottom:1.25rem;
+  }
+  .cliff-legend span{display:flex;align-items:center;gap:.45rem}
+  .sw{width:.85rem;height:.85rem;flex:none}
+  .sw.a{background:var(--navy)}
+  .sw.b{background:var(--navy);opacity:.28}
+  .row{
+    display:grid;grid-template-columns:11.5rem 1fr 4.5rem;
+    gap:1rem;align-items:center;padding:.7rem 0;border-top:1px solid var(--rule);
+  }
+  .row:last-child{border-bottom:1px solid var(--rule)}
+  .row .label{
+    font-family:"IBM Plex Sans",sans-serif;font-size:.9rem;font-weight:600;line-height:1.3;
+  }
+  .row .label em{
+    display:block;font-family:"IBM Plex Mono",monospace;font-style:normal;
+    font-size:.68rem;font-weight:400;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--ink-soft);margin-top:.15rem;
+  }
+  .track{position:relative;height:2rem;background:var(--navy-tint)}
+  .fill,.fill2{
+    position:absolute;left:0;top:0;height:100%;
+    width:var(--w);transform:scaleX(0);transform-origin:left;
+    transition:transform .85s cubic-bezier(.22,.7,.24,1);
+  }
+  .fill{background:var(--navy);opacity:.28}
+  .fill2{background:var(--navy)}
+  .revealed .fill,.revealed .fill2{transform:scaleX(1)}
+  .fill2{transition-delay:.14s}
+  .row .pos{
+    font-family:"IBM Plex Mono",monospace;font-size:.86rem;text-align:right;
+    font-variant-numeric:tabular-nums;color:var(--ink-soft);
+  }
+  .row .pos b{display:block;color:var(--ink);font-weight:600;font-size:1rem}
+  .cliff-note{
+    font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.04em;
+    color:var(--ink-soft);margin-top:.85rem;
+  }
+
+  /* ---- citation ledger ---- */
+  .ledgers{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;
+    margin:1.75rem 0 1rem;
+  }
+  .ledger h4{
+    font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;margin:0 0 .2rem;
+  }
+  .ledger .tot{
+    font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--ink-soft);
+    margin:0 0 .9rem;padding-bottom:.6rem;border-bottom:1px solid var(--rule);
+  }
+  .ledger ol{list-style:none;margin:0;padding:0}
+  .ledger li{
+    position:relative;font-family:"IBM Plex Mono",monospace;font-size:.78rem;
+    line-height:1.35;padding:.34rem .5rem;margin-bottom:.14rem;
+    display:flex;justify-content:space-between;gap:.6rem;
+    background:var(--slate-tint);
+  }
+  .ledger li.owned{background:var(--navy-tint);color:var(--navy);font-weight:600}
+  .ledger li.rented{background:var(--ochre-tint);color:var(--ochre)}
+  .ledger li span{font-variant-numeric:tabular-nums;flex:none}
+  .key{
+    display:flex;gap:1.4rem;flex-wrap:wrap;
+    font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--ink-soft);margin-top:1.1rem;
+  }
+  .key span{display:flex;align-items:center;gap:.45rem}
+  .key .sw.o{background:var(--navy-tint);border:1px solid var(--navy)}
+  .key .sw.r{background:var(--ochre-tint);border:1px solid var(--ochre)}
+  .key .sw.t{background:var(--slate-tint);border:1px solid var(--slate)}
+
+  /* ---- zeros ---- */
+  .zero{
+    border-left:3px solid var(--ochre);padding:.15rem 0 .15rem 1.15rem;
+    margin:1.4rem 0;max-width:var(--measure);
+  }
+  .zero .q{
+    font-family:"IBM Plex Sans",sans-serif;font-weight:600;font-size:1.02rem;
+    line-height:1.35;margin:0 0 .1rem;
+  }
+  .zero .stat{
+    font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ochre);margin:0 0 .55rem;
+  }
+  .zero p:last-child{margin:0;font-size:.98rem}
+
+  /* ---- list ---- */
+  ul.plain{list-style:none;margin:1.1rem 0 0;padding:0;max-width:var(--measure)}
+  ul.plain li{
+    padding:0 0 .95rem 2.1rem;position:relative;
+  }
+  ul.plain li:before{
+    content:attr(data-n);position:absolute;left:0;top:.16rem;
+    font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:500;
+    color:var(--navy);letter-spacing:.06em;
+  }
+  ul.plain li:last-child{padding-bottom:0}
+
+  /* ---- caveats ---- */
+  .caveats{background:var(--panel);padding:1.6rem 1.6rem 1.7rem;margin-top:.5rem}
+  .caveats h2{margin-bottom:.85rem}
+
+  footer{padding:2.5rem 0 4rem;border-top:1px solid var(--rule)}
+  footer p{font-size:.95rem;color:var(--ink-soft);max-width:var(--measure)}
+  footer a{color:var(--navy);text-decoration:none;border-bottom:1px solid var(--navy-tint)}
+  footer a:hover,footer a:focus{border-bottom-color:var(--navy)}
+  a:focus-visible,li:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+
+  @media (max-width:760px){
+    .ledgers{grid-template-columns:1fr;gap:1.6rem}
+    .row{grid-template-columns:1fr;gap:.5rem;padding:.9rem 0}
+    .row .pos{text-align:left}
+    .row .pos b{display:inline;margin-right:.4rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .fill,.fill2{transition:none;transform:scaleX(1)}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Independent analysis &nbsp;/&nbsp; August 2026 &nbsp;/&nbsp; Softpath</p>
+    <h1>Webflow wins the AI answers where you already know the name.</h1>
+    <p class="dek">And loses the ones where the buyer describes the problem instead. A teardown of webflow.com&rsquo;s answer-engine visibility across 660 LLM responses.</p>
+    <p class="meta">
+      <b>55 prompts</b> &nbsp;&middot;&nbsp; <b>4 engines</b> (GPT, Claude, Gemini, Perplexity) &nbsp;&middot;&nbsp; <b>3 runs each</b> &nbsp;&middot;&nbsp; collected 2026-08-06<br>
+      Comparison set: Framer, Wix Studio, Squarespace, WordPress, Contentful, Sitecore
+    </p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <h2>The short version</h2>
+  <div class="measure">
+    <p class="lead">Webflow holds 26.9% share of voice across the set, roughly five times WordPress. That number reads like category dominance. It isn&rsquo;t. It is concentrated almost entirely in prompts where the buyer has already typed the word &ldquo;Webflow.&rdquo;</p>
+    <p>Split the same 660 responses by what the buyer actually asked, and presence falls from 100% on comparison prompts to 45% on problem-language prompts. Citation rate falls from 70% to 4%.</p>
+    <p>The comparison wins are also rented. Across comparison prompts, partner and agency blogs supply 22.7% of citations against 14.4% for webflow.com and its subdomains. The strongest asset in Webflow&rsquo;s answer-engine footprint is content Webflow does not own, cannot update, and does not set the positioning of.</p>
+    <p>Two prompts returned zero Webflow mentions in all twelve runs. One of them was <span class="mono">&ldquo;What is the best CMS for enterprise marketing teams?&rdquo;</span></p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">01</span>The intent cliff</h2>
+  <div class="measure">
+    <p>Same brand, same week, same engines. The only variable is how the question is phrased.</p>
+  </div>
+
+  <div class="cliff" id="cliff">
+    <div class="cliff-legend">
+      <span><i class="sw b"></i> Present in answer</span>
+      <span><i class="sw a"></i> webflow.com cited</span>
+    </div>
+
+    <div class="row">
+      <div class="label">Comparison<em>brand named</em></div>
+      <div class="track">
+        <div class="fill"  style="--w:100%"></div>
+        <div class="fill2" style="--w:70.2%"></div>
+      </div>
+      <div class="pos"><b>1.14</b>avg pos</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Category<em>unbranded</em></div>
+      <div class="track">
+        <div class="fill"  style="--w:70%"></div>
+        <div class="fill2" style="--w:25%"></div>
+      </div>
+      <div class="pos"><b>2.49</b>avg pos</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Problem<em>buyer language</em></div>
+      <div class="track">
+        <div class="fill"  style="--w:45%"></div>
+        <div class="fill2" style="--w:4.2%"></div>
+      </div>
+      <div class="pos"><b>5.11</b>avg pos</div>
+    </div>
+
+    <p class="cliff-note">Presence &rarr; 100% / 70% / 45% &nbsp;&nbsp; Cited &rarr; 70.2% / 25.0% / 4.2%</p>
+  </div>
+
+  <div class="measure">
+    <p>Problem-tier prompts are where net-new demand starts. <em>Our website takes weeks to update. How do we fix that?</em> <em>How do I stop my marketing team from waiting on engineering to ship landing pages?</em> <em>How do I show the marketing site contributes to pipeline?</em></p>
+    <p>In that tier Webflow appears in 54 of 120 responses. WordPress is in 51. Contentful 43, HubSpot 41, Sanity 35. The five-to-one lead Webflow holds in aggregate is a rounding error at the top of the funnel.</p>
+    <p>And where Webflow does surface in a problem-tier answer, median position is third. It is a runner-up mention, not the recommendation.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">02</span>Who is actually supplying the answer</h2>
+  <div class="measure">
+    <p>6,888 citations across 1,023 unique domains. Ranked by tier, this is where the models went to build their response.</p>
+  </div>
+
+  <div class="ledgers">
+    <div class="ledger">
+      <h4>Category tier</h4>
+      <p class="tot">1,169 citations &nbsp;/&nbsp; webflow.com = 4.5%</p>
+      <ol>
+        <li class="third">reddit.com <span>55</span></li>
+        <li class="third">youtube.com <span>37</span></li>
+        <li class="owned">webflow.com <span>36</span></li>
+        <li class="third">wix.com <span>24</span></li>
+        <li class="third">prismic.io <span>23</span></li>
+        <li class="third">contentful.com <span>22</span></li>
+        <li class="third">gartner.com <span>22</span></li>
+        <li class="third">blog.hubspot.com <span>20</span></li>
+        <li class="third">contentstack.com <span>18</span></li>
+      </ol>
+    </div>
+
+    <div class="ledger">
+      <h4>Problem tier</h4>
+      <p class="tot">1,091 citations &nbsp;/&nbsp; webflow.com = 1.0%</p>
+      <ol>
+        <li class="third">youtube.com <span>51</span></li>
+        <li class="third">reddit.com <span>34</span></li>
+        <li class="third">web.dev <span>24</span></li>
+        <li class="third">blog.hubspot.com <span>18</span></li>
+        <li class="third">linkedin.com <span>17</span></li>
+        <li class="third">developers.google.com <span>16</span></li>
+        <li class="owned">webflow.com <span>11</span></li>
+        <li class="third">medium.com <span>10</span></li>
+        <li class="third">contentful.com <span>9</span></li>
+      </ol>
+    </div>
+
+    <div class="ledger">
+      <h4>Comparison tier</h4>
+      <p class="tot">4,628 citations &nbsp;/&nbsp; webflow.com = 14.4%</p>
+      <ol>
+        <li class="owned">webflow.com <span>496</span></li>
+        <li class="rented">flowout.com <span>163</span></li>
+        <li class="third">youtube.com <span>149</span></li>
+        <li class="third">reddit.com <span>147</span></li>
+        <li class="rented">brixtemplates.com <span>138</span></li>
+        <li class="owned">help.webflow.com <span>95</span></li>
+        <li class="rented">magier.com <span>82</span></li>
+        <li class="rented">flowninja.com <span>79</span></li>
+        <li class="rented">n4.studio <span>79</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="key">
+    <span><i class="sw o"></i> Webflow-owned</span>
+    <span><i class="sw r"></i> Partner / agency</span>
+    <span><i class="sw t"></i> Third party</span>
+  </div>
+
+  <div class="measure" style="margin-top:1.6rem">
+    <p>In the comparison tier, eighteen Webflow partner and agency blogs supply 1,050 citations, or 22.7%. Webflow-owned domains supply 665, or 14.4%. The partner ecosystem is doing Webflow&rsquo;s comparison marketing inside the answer layer.</p>
+    <p>That is not a liability on its own. It is unmanaged leverage, and it carries three exposures: those agencies write for their own lead generation rather than Webflow&rsquo;s positioning, the content decays with nobody at Webflow watching it, and a competitor publishing better first-party comparison pages can displace all of it at once.</p>
+    <p>In the category and problem tiers there is no ecosystem backstop. Reddit and YouTube are the top-cited sources, and competitor-owned domains collectively out-cite webflow.com.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">03</span>Two zeros worth naming</h2>
+
+  <div class="zero">
+    <p class="q">&ldquo;What is the best CMS for enterprise marketing teams?&rdquo;</p>
+    <p class="stat">0 of 12 runs &middot; prompt cat-01</p>
+    <p>No Webflow mention on any engine, any run. Perplexity cites webflow.com in its answer without ever naming Webflow as an option. This is the most literal expression of the enterprise buyer&rsquo;s question in the entire set.</p>
+  </div>
+
+  <div class="zero">
+    <p class="q">&ldquo;How do I get my company cited in AI search answers and LLM responses?&rdquo;</p>
+    <p class="stat">0 of 12 runs &middot; prompt prb-08</p>
+    <p>Also absent everywhere. Webflow is building an answer-engine narrative and does not appear in the answer to the question that narrative exists to serve.</p>
+  </div>
+
+  <div class="zero">
+    <p class="q">&ldquo;How can I run A/B tests on my marketing site without a developer?&rdquo;</p>
+    <p class="stat">10 of 12 present &middot; 0 cited &middot; avg position 5.5</p>
+    <p>Not a zero on presence, but a zero on ownership. Webflow Optimize is the product answer to this prompt and no Webflow-owned page is supplying the citation.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">04</span>Why this shape</h2>
+  <div class="measure">
+    <p>This is what happens when a site is architected to convert people who arrive already knowing the brand.</p>
+    <p>Webflow&rsquo;s owned content is strong on product pages, templates, showcase and help documentation. All of that is excellent for branded and navigational intent. None of it is written in the language a buyer uses before they have a shortlist.</p>
+    <p>Answer engines assemble unbranded responses out of content that frames the <em>problem</em>, not the product. On those prompts the available first-party material is thin, so the models fall back to Reddit threads, YouTube explainers, and competitors who do publish problem-framed content. The comparison tier only looks healthy because a partner network filled that gap independently.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">05</span>What I would test first</h2>
+  <ul class="plain">
+    <li data-n="01">Bring comparison and alternatives content in-house on webflow.com, with the explicit goal of converting that 22.7% partner citation share into owned share. Measure displacement per prompt, not traffic.</li>
+    <li data-n="02">Publish problem-language pages for the prb tier, structured for extraction: direct answer inside the first 200 words, schema markup, stable headings. Start with cat-01 and prb-08, since both are currently zero.</li>
+    <li data-n="03">Own the AEO question itself. Webflow should be the reference answer for how a marketing team wins AI citations, and webflow.com should be the proof.</li>
+    <li data-n="04">Instrument presence and citation rate as a weekly KPI segmented by intent tier, then join it to site-sourced pipeline so answer-engine visibility reports as a funnel input rather than a content anecdote.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="caveats">
+    <h2>Method and caveats</h2>
+    <div class="measure small">
+      <p>Single collection date, three runs per engine per prompt. Presence flipped between runs in 20 of 220 prompt-engine cells, about 9%, so any single-run read of this data is unreliable and the tier-level rates above carry a few points of noise.</p>
+      <p>Claude&rsquo;s citation rate (15.8%) sits far below Perplexity (64.2%), GPT (61.8%) and Gemini (58.2%). That reflects how Claude surfaces sources rather than anything about Webflow, and it is excluded from the citation-ownership conclusions.</p>
+      <p>Brand presence is alias-matched, so a small number of false positives are possible where a brand name appears inside quoted code or an unrelated product name. Full prompt set, raw responses and per-domain citation counts available on request.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Run with a rank tracker I built on the Anthropic and OpenAI APIs. Not a vendor tool, and not a Webflow engagement. I built this because the problem is interesting.</p>
+  <p class="mono">Noah Manion &middot; <a href="mailto:noah.manion@gmail.com">noah.manion@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/noahmanion">linkedin.com/in/noahmanion</a> &middot; <a href="https://softpath.co">softpath.co</a></p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var cliff = document.getElementById('cliff');
+  if(!cliff) return;
+  if(!('IntersectionObserver' in window) ||
+     window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    cliff.classList.add('revealed');
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.35 });
+  io.observe(cliff);
+})();
+</script>
+
+</body>
+</html>
