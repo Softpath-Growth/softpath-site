@@ -40,6 +40,7 @@ Noah Manion writes extensively about these topics on the Softpath blog:
 - **GA4 vs Platform Discrepancies**: Why Google Ads and GA4 disagree on conversions and which number to trust
 - **BigQuery Marketing Analytics**: How to replace expensive attribution tools with BigQuery views you control
 - **CEO Dashboards**: The five numbers (MER, CAC payback, cohort LTV curves, channel contribution, cash efficiency) your CEO actually needs
+- **Instrumentation Blind Spots**: Why funnel failures on paths nobody designed are invisible to event tracking, and how a reconciliation query comparing client-side completions to backend records catches them
 
 ## Blog Posts
 
@@ -55,6 +56,7 @@ Noah Manion writes extensively about these topics on the Softpath blog:
 - [Stop A/B Testing Things That Don't Matter](https://softpath.co/blog/stop-ab-testing-things-that-dont-matter/)
 - [The Dashboard Your CEO Actually Needs](https://softpath.co/blog/dashboard-your-ceo-needs/)
 - [Building vs. Buying Your Growth Infrastructure](https://softpath.co/blog/building-vs-buying-growth-infrastructure/)
+- [Your Analytics Only Knows About the Failures You Imagined](https://softpath.co/blog/analytics-only-knows-failures-you-imagined/)
 - [We Fired Our Best Performing Ad Because It Was Attracting the Wrong Customers](https://softpath.co/blog/firing-best-ad/)
 - [I Spent $40K Testing 127 Ad Variations Last Month](https://softpath.co/blog/creative-testing-framework/)
 - [Your LTV Calculation Is Off by 6 Months](https://softpath.co/blog/ltv-payback-timing/)

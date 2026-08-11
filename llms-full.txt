@@ -1,7 +1,7 @@
 # Softpath - Full Content Index
 
 > This file contains the full text content of softpath.co for AI systems.
-> Last generated: 2026-03-04T19:31:41Z
+> Last generated: 2026-08-11T19:32:45Z
 > Website: https://softpath.co
 > Contact: noah@softpath.co
 > See also: https://softpath.co/llms.txt for a summary version.
@@ -229,6 +229,101 @@ We share deeper specifics on methodology and outcomes in conversation. Some clie
 {% endfor %}
 
 # BLOG POSTS
+
+---
+
+## Your Analytics Only Knows About the Failures You Imagined (2026-08-11)
+
+
+271 people started a signup form in six days. Zero of them finished it.
+
+No errors. No failed submissions. No abandonment events. Every dashboard I had access to reported the same thing: a funnel with a top and no bottom, and nothing in between to explain the gap.
+
+That absence turned out to be the finding.
+
+This is a story about a specific bug at a field service SaaS client, but the bug is not the interesting part. The interesting part is why four days of querying the warehouse could not find it, and what that says about how most teams instrument their products.
+
+## Four hypotheses, four dead ends
+
+The client runs Meta traffic to a demo page, which links to a signup form on a separate subdomain. Volume ramped hard in early August. Arrivals climbed. Accounts created stayed at zero.
+
+I started where anyone would start, which is with the assumption that the traffic is bad.
+
+**Bot traffic.** Killed it on dwell time. These sessions ran 40 seconds and moved through the demo page in a coherent order. Bots do not read.
+
+**Creative and offer mismatch.** Killed it on path analysis. People arriving from the ads were traversing the site like they wanted the product, not like they had clicked the wrong thing.
+
+**Form friction.** Killed it on the form itself. Name, email, password. There is not enough surface area there to lose 271 consecutive people.
+
+**Validation rejection.** This was my best theory and it took the longest to kill. The backend returns a 200 with a success flag set to false in several cases, which means a rejected signup looks identical to a completed one from the client's perspective. The only durable record lives in an application progress table with an exit reason field, and that table lives in the app database rather than the warehouse. I asked for the counts. They were near zero.
+
+Four wrong answers, each checked and disproven. At that point I stopped querying and opened the page on a phone.
+
+## The two buttons
+
+The mobile signup form led with two controls, above the fold and above the email field: Continue with Google and Continue with Microsoft.
+
+Google has blocked OAuth from embedded webviews since 2021, with hard enforcement and a `disallowed_useragent` error since July 2023. The Facebook and Instagram in-app browsers are embedded webviews. Microsoft enforces the same policy. Apple's Sign in with Apple behaves the same way.
+
+Every visitor arriving from a Meta ad who tapped either button got a full-page 403 and dead-ended. There is no setting that turns this off. It is enforced on Google's side, for every site's Google login, inside those apps. Nobody configures their way out of it.
+
+The fix was user agent detection. Suppress both social buttons when the UA contains the Facebook or Instagram tokens, lead with email and password. Roughly forty lines of client-side code.
+
+Four days of diagnosis, one afternoon of implementation. That ratio is normal when the evidence you are looking for is an absence.
+
+## Why nothing could see it
+
+Here is the part worth keeping.
+
+The completion event fired inside the callback for the email and password submit path. That is the only place it fired. An OAuth attempt does not reach that callback, so it emits nothing.
+
+The exit tracking wrote rows to the application progress table only on submit attempts. An OAuth attempt is not a submit, so it wrote nothing.
+
+Both instrumentation layers were blind to the same failure, for the same reason. They were both built by describing the path the team designed. The failure happened on a path nobody had described.
+
+This is not an instrumentation gap in the sense of somebody forgetting an event. Every event that existed was correct and firing. The taxonomy was complete with respect to the model of the world it was built from. That model just did not include "the user taps a button and receives a 403 from a third party."
+
+Your event taxonomy is a document of your assumptions about how people succeed and how you expect them to fail. Failure modes you did not imagine are invisible by construction, and no amount of dashboard-staring surfaces them, because the dashboard is downstream of the same assumptions.
+
+## The reconciliation column
+
+There is one cheap defense against this and most teams do not run it.
+
+Count the thing the funnel is supposed to create, from the system of record, and put it next to your client-side completion count in the same query. Accounts created from the backend table, against form completions from the client. Then subtract.
+
+That gap column is the highest-value column in any funnel query you will write. It does not tell you why. It tells you that your client-side story and your database disagree, which is the only signal that reliably survives a failure mode you did not anticipate.
+
+In this case the gap was the entire funnel. In the more common case it is a persistent small positive number, and it means something quiet is eating conversions. At this same client, the backend had five silent bot-detection gates that return success to the user while creating nothing. One of them limits signups to three per non-free email domain per ten minutes. A contractor signing up his office staff together hits it and gets told he succeeded.
+
+Nothing about that is visible in an event stream. It is only visible in the difference between two counts.
+
+## The second-order damage, and the reframe
+
+There is a media consequence here that is easy to miss and it cuts the other way from what you would expect.
+
+The campaign was optimizing toward a conversion event that could not fire. Meta spends against the signal it receives, so for six days the bid model was learning from nothing while the ads themselves were working better and better. Dwell time went up. Demo page traversal went up. Traffic quality rose during the outage.
+
+That reframe matters more than the bug. Presented as "we burned a week of budget," this is a failure. Presented accurately, the money is not wasted, it is dammed up. The demand exists, it arrived, and it hit a wall forty pixels from the finish line. Fix the wall and you find out what the account can actually do.
+
+I would rather present that than a clean week of mediocre performance.
+
+## What I actually changed
+
+Three things, in order of value.
+
+The UA detection, which is the fix. Client-side, no dependencies, no touching the backend.
+
+An event on the suppressed cohort, so the population that used to be invisible now has a name and a count. If you fix an invisible failure without instrumenting the fix, you have traded one blind spot for a slightly smaller one.
+
+And a reconciliation query that runs client completions against backend account creations daily, with the gap as a column. That one takes ten minutes to write and it is the thing that catches the next bug of this shape, which will not look anything like this one.
+
+---
+
+This is the kind of work I do at [Softpath](https://softpath.co). I run growth, and I also build the systems that run it, which in practice means I am the person who reads the event payloads and the person who decides what the campaign should optimize toward. Those two jobs are usually split across a consultant and an engineer, and the bug above lives exactly in the seam between them.
+
+Some of that thinking is productized. [Cadence](https://cadence.softpath.co) is the A/B testing tool I built because most testing platforms report on the metric you declared and stay quiet about everything downstream of it, which is the same failure as the one in this post wearing a different hat. Tests that measure conversion auto-instrument retention, whether you asked for it or not.
+
+If your funnel numbers and your database numbers have never been in the same query, that is where I would start. [Get in touch](https://softpath.co/contact).
 
 ---
 
@@ -1926,26 +2021,28 @@ Until that track exists, the least companies can do is learn to recognize the pr
 
 ---
 
-## The A/B Testing Market Is Solving the Wrong Problem (2026-02-25)
+## The A/B Testing Market Is Solving the Wrong Problem. So I Built Cadence. (2026-02-25)
 
 
 Most A/B testing programs fail silently.
 
 Not because the tools are broken. Optimizely works. VWO works. Statistical significance is real. The math is fine.
 
-They fail because nobody called the test. Because the results got filed in Notion and never touched again. Because the growth PM is presenting at the QBR with a slide that says "17 experiments launched" and a CEO who has no idea what any of them did to the business.
+They fail because nobody called the test. Because the results got filed in Notion and never touched again. Because the growth PM is presenting at the QBR with a slide that says "17 experiments launched" and the CEO has no idea what any of them did to the business.
 
-I've watched this happen at company after company across 13 years of growth work. The testing program exists on paper. The velocity does not. And when I went looking for a tool that actually treated that as the core problem to solve, I found nothing. Just a graveyard of Google Optimize alternatives competing on feature parity with tools that cost 10x more.
+I've watched this happen at company after company across 13 years of growth work. The testing program exists on paper. The velocity does not. And when I went looking for a tool that actually treated that as the core problem to solve, I found nothing.
 
-So I built Cadence.
+Just a graveyard of Google Optimize alternatives competing on feature parity with tools that cost 10x more.
+
+So I built [Cadence](https://cadence.softpath.co).
 
 ---
 
 ## What broke the market in 2023
 
-When Google shut down Google Optimize in September 2023, they displaced a massive chunk of the testing market overnight. These were teams running perfectly functional experiments for free, suddenly being asked to pay $500-2,000/month for enterprise software they'd never need 80% of.
+When Google shut down Google Optimize in September 2023, they displaced a massive chunk of the testing market overnight. Teams running perfectly functional experiments for free were suddenly being asked to pay $500-2,000/month for enterprise software they'd never use 80% of.
 
-The alternatives that positioned to capture them all made the same mistake: they competed on infrastructure. Faster test deployment. Better stats engines. More integrations. Fancier targeting.
+The alternatives that rushed to capture them all made the same mistake: they competed on infrastructure. Faster test deployment. Better stats engines. More integrations. Fancier targeting.
 
 None of that was the problem.
 
@@ -1957,29 +2054,35 @@ No existing tool was trying to solve that.
 
 ## How the market actually bifurcated
 
-The A/B testing landscape split into two camps that both miss the same customer.
+The A/B testing landscape split into two camps, and both miss the same customer.
 
-On the high end, you have Optimizely and Adobe Target. Serious tools, serious price tags, requiring dedicated experimentation programs and internal champions just to justify the contract. Built for companies where experimentation is already a first-class function with headcount attached. If you're not already there, these tools will not get you there -- they'll just give you a more expensive version of the same dysfunction you already have.
+On the high end: Optimizely and Adobe Target. Serious tools, serious price tags, requiring dedicated experimentation programs and internal champions just to justify the contract. Built for companies where experimentation is already a first-class function with headcount attached. If you're not already there, these tools won't get you there. They'll just give you a more expensive version of the same dysfunction you already have.
 
-On the low end, you have the developer-focused open source alternatives -- GrowthBook, Flagsmith, Unleash. Legitimate tools, genuinely free, and completely dependent on engineering capacity to run. No executive-facing output. No workflow enforcement. No accountability layer. The growth PM who needs to run tests without pulling dev cycles gets nothing from these except a GitHub repo to send to their already-overloaded engineering team.
+On the low end: the developer-focused open source alternatives. GrowthBook, Flagsmith, Unleash. Legitimate tools, genuinely free, and completely dependent on engineering capacity to run. No executive-facing output. No workflow enforcement. No accountability layer. The growth PM who needs to run tests without pulling dev cycles gets nothing from these except a GitHub repo to send to their already-overloaded engineering team.
 
-The gap is the growth PM at a 40-person Series B with a small dev team, a testing program that exists on paper, and a quarterly business review coming up where they need to show impact. That's not a niche. That's a massive slice of the market, and nobody is building for them specifically.
+The gap is the growth PM at a 40-person Series B with a small dev team, a testing program that exists on paper, and a quarterly business review coming up where they need to show impact. That's not a niche. That's a massive slice of the market, and nobody is building for them.
+
+Until now.
 
 ---
 
 ## What Cadence does differently
 
-The core bet behind Cadence is this: testing infrastructure is now a commodity, and the real value is in what sits on top of it.
+The core bet behind Cadence: testing infrastructure is now a commodity. The real value is in what sits on top of it.
 
-So the infrastructure is free.
+So the infrastructure layer is free.
 
-What you pay for is the system that makes your team actually ship tests consistently -- and the output layer that makes those tests legible to people who don't care about p-values.
+What you pay for is the system that makes your team actually ship tests consistently, and the output layer that makes those tests legible to people who don't care about p-values.
 
-**Workflow enforcement.** Cadence treats a test like a project with a lifecycle, not a SQL query you fire and forget. It enforces calling conventions, tracks test age, and surfaces when something has been running past its useful window. The default state of a test is not "running indefinitely" -- it's "has a decision date." That one shift in assumption changes how teams behave.
+**Workflow enforcement.** Cadence treats a test like a project with a lifecycle, not a SQL query you fire and forget. It enforces calling conventions, tracks test age, and surfaces when something has been running past its useful window. The default state of a test is not "running indefinitely." It's "has a decision date." That one shift in assumption changes how teams behave.
 
-**The Impact View dashboard.** Most testing tools produce outputs that only data people can read. Cadence produces outputs designed for the quarterly business review. Revenue impact projections. Retention curves. Annualized lift estimates. The goal is that your CEO can look at your testing program results for thirty seconds and understand what it's doing for the business. That's not vanity -- that's how testing programs survive internal politics long enough to actually compound.
+I built this because I was tired of being the person who had to manually check every two weeks and tell a team their experiment had been done for a month. Every consulting engagement, same story. Tests running past significance because nobody owned the decision.
 
-This came out of a simple observation: the testing programs that die aren't the ones with bad data. They're the ones where leadership can't see the value. If your CEO can't read your experiment results, your testing program is one bad quarter away from getting defunded.
+**The Impact View dashboard.** Most testing tools produce outputs that only data people can read. Cadence produces outputs designed for the quarterly business review. Revenue impact projections. Retention curves. Annualized lift estimates. The goal is that your CEO can look at your testing program results for thirty seconds and understand what it's doing for the business.
+
+That's not vanity. That's survival. The testing programs that die aren't the ones with bad data. They're the ones where leadership can't see the value. If your CEO can't read your experiment results, your testing program is one bad quarter away from getting defunded.
+
+**Outcome-first measurement.** Cadence doesn't just tell you whether variant B beat variant A on click-through rate. It follows the chain downstream. Did those converted users retain? Did they generate more revenue? Did the test win the metric game but lose the business game? This is the most insidious trap in A/B testing, and most tools don't even try to address it.
 
 ---
 
@@ -1987,15 +2090,15 @@ This came out of a simple observation: the testing programs that die aren't the 
 
 I built the first version of Cadence for my own consulting work. I needed a way to manage experiments across multiple client accounts without context-switching constantly, and I needed output formats I could drop into a client deck without reformatting everything in Google Sheets the night before a call.
 
-The workflow enforcement piece came from watching clients run tests past significance for months because nobody owned the decision. I started building the "call the test" logic in because I was tired of being the person who had to manually check every two weeks and tell a team their experiment had been done for a month.
-
-The executive communication layer came from a different frustration: clients who were genuinely doing good work but couldn't defend it internally. Growth PMs who were running disciplined experiments and losing budget fights because their reporting looked like a data export and not a business narrative.
+The executive communication layer came from a different frustration: clients who were doing good work but couldn't defend it internally. Growth PMs running disciplined experiments and losing budget fights because their reporting looked like a data export, not a business narrative.
 
 Both of those problems are organizational, not technical. The solution had to be opinionated about process, not just capable of running tests.
 
 ---
 
-## Where this fits if you're evaluating options
+## Where Cadence fits (and where it doesn't)
+
+I'll be direct about this.
 
 Cadence is not the right tool if you need multivariate testing across thousands of sessions per hour with enterprise SSO and a dedicated CSM. Buy Optimizely.
 
@@ -2007,7 +2110,17 @@ The pitch is simple: the bottleneck in your testing program isn't the tool. It's
 
 ---
 
-If that problem is familiar, [check out Cadence](https://cadence.softpath.co) and see what it looks like in practice.
+## Try it
+
+Cadence is live at [cadence.softpath.co](https://cadence.softpath.co). You can sign up and start running experiments today.
+
+If you're running 10+ experiments per quarter and your current tooling is slowing you down, I'd genuinely like to hear about your setup. Not a sales pitch. Just a conversation about what's broken and whether Cadence is the right fix.
+
+[Check out Cadence](https://cadence.softpath.co) and see what it looks like in practice.
+
+---
+
+*Noah Manion is a fractional growth consultant at [softpath.co](https://softpath.co) specializing in marketing infrastructure, paid acquisition, and analytics for B2C and B2B2C companies.*
 
 ---
 
