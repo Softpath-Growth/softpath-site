@@ -40,10 +40,12 @@ Noah Manion writes extensively about these topics on the Softpath blog:
 - **GA4 vs Platform Discrepancies**: Why Google Ads and GA4 disagree on conversions and which number to trust
 - **BigQuery Marketing Analytics**: How to replace expensive attribution tools with BigQuery views you control
 - **CEO Dashboards**: The five numbers (MER, CAC payback, cohort LTV curves, channel contribution, cash efficiency) your CEO actually needs
+- **Competitive Ad Research**: Why unbranded Facebook pages hide less than people think, and how the EU DSA payer disclosure (aaa_info.payer_beneficiary_data) is the only field that actually resolves who owns an ad
 - **Instrumentation Blind Spots**: Why funnel failures on paths nobody designed are invisible to event tracking, and how a reconciliation query comparing client-side completions to backend records catches them
 
 ## Blog Posts
 
+- [Nobody Is Hiding Their Creative. I Once Helped Hide a Business Model.](https://softpath.co/blog/nobody-is-hiding-their-creative/)
 - [Your Attribution Tool Is Lying to You. Here's How to Check.](https://softpath.co/blog/attribution-tool-lying/)
 - [The Martech Stack Audit Nobody Wants to Do](https://softpath.co/blog/martech-stack-audit/)
 - [MER Is the Only Metric That Matters](https://softpath.co/blog/mer-only-metric-that-matters/)
